@@ -91,3 +91,32 @@ section.trending_events{
     grid-template-columns: 1fr 1fr 1fr;
     margin: 1em;
 }
+
+div.card {
+    width: 320px;
+    box-shadow: 1px 1px 4px 1px #888;
+    background-color: white;
+    border-radius:3px 3px 3px 3px;
+      overflow: hidden;
+  }
+div.container {
+    margin: 1em;
+    font-family: "Arial";
+  }
+div.footer {
+    padding: 1em;
+  }
+
+img.image_event {
+    width: 100%;
+  }
+button.view{
+    border-radius:3px 0 0 3px;
+  }
+  
+button.edit{
+    border-radius: 0 3px 3px 0;
+    border-left: 0;
+  }
+  
+  
