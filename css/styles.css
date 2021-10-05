@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Patrick Hand', cursive;
+    font-size: larger;
+    margin: 0 auto;
+    max-width: 90%;
+    background-color: solid rgb(56, 56, 47);
+}
+
+div.userEvents{
+    margin: 0 auto;
+    margin-top: 3em;
+    margin: 0 auto;
+    margin-top: 3em;
+    border-color: solid black;
+    border-style: dashed;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    background: rgb(91,177,177);
+    background: rgb(91,177,177);
+    background: linear-gradient(0deg, rgba(91,177,177,0.5494572829131652) 14%, rgba(4,4,188,0.711038961038961) 66%);
+
+}
+
+div.box{
+    margin: 1.2em;
+    color: rgba(20, 2, 2, 0.966);
+    font-weight: 600;
+    border:.9px dashed darkkhaki;
+    padding: 1.5em;
+    border-radius: 15px;
+}
+
+div.findEvents{
+    margin: 0 auto;
+    margin-top: 3em;
+    margin: 0 auto;
+    margin-top: 3em;
+    border-color: solid black;
+    border-style: dashed;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    background: rgb(91,177,177);
+    background: rgb(91,177,177);
+    background: linear-gradient(0deg, rgba(91,177,177,0.5494572829131652) 14%, rgba(4,4,188,0.711038961038961) 66%);
+
+}
+div.trendingEvents{
+    margin: 0 auto;
+    margin-top: 3em;
+    margin: 0 auto;
+    margin-top: 3em;
+    border-color: solid black;
+    border-style: dashed;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    background: rgb(91,177,177);
+    background: rgb(91,177,177);
+    background: linear-gradient(0deg, rgba(91,177,177,0.5494572829131652) 14%, rgba(4,4,188,0.711038961038961) 66%);
+}
+
+h2{
+    background-color: rgb(4, 4, 141);
+    color:whitesmoke
+}
+
+
+section.your_events{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin: 1em;
+}
+
+section.find_events{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1em;
+}
+
+section.trending_events{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1em;
+}
