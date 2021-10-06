@@ -18,6 +18,7 @@ nav.navBar {
 
 a.navButton {
     color: white;
+    text-decoration: none;
     padding: 1em;
     width: 1em;
 }
@@ -44,6 +45,7 @@ div.box{
     border: 1px solid lightgray;
     padding: 1.5em;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 h2{
@@ -51,31 +53,27 @@ h2{
     color: whitesmoke
 }
 
-section.your_events{
+section.eventGrid{
     display: grid;
+    overflow-x: scroll;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     margin: 1em;
 }
 
-section.find_events{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 1em;
-}
-
-section.trending_events{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 1em;
-}
-
 div.card {
     width: 320px;
+    max-height: 30em;
     box-shadow: 1px 1px 4px 1px #888;
     background-color: white;
-    border-radius:3px 3px 3px 3px;
-      overflow: hidden;
+    margin: .5em;
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+div.card img {
+    max-height: 8em;
 }
 
 div.container {

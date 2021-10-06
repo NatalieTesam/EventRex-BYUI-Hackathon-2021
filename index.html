@@ -14,7 +14,7 @@
     <header>
         <nav class='navBar'>
             <a href="index.html"><img src='' alt='logo here' data-src='../homepage/media/temple-logo.png'></a>
-            <a class="navButton" href="#" onclick="events.createEvent('eventName')">NEW EVENT</a>
+            <a class="navButton" href="#">NEW EVENT</a>
             <a class="navButton" href="">PROFILE</a>
             <a class="navButton active" href="">HOME</a>
             <a class="navButton" href="">FAQ'S</a>
@@ -23,20 +23,21 @@
     
     <main>
         <div class="eventContainer">
-            <h2>YOUR EVENTS:</h2>
-            <section class="your_events">
-                <div class="box">EVENT #1</div>
+            <h2>YOUR EVENTS</h2>
+            <section id="your_events" class="eventGrid">
+                <!--<div class="box">EVENT #1</div>
                 <div class="box">EVENT #2</div>
                 <div class="box">EVENT #3</div>
                 <div class="box">EVENT #4</div>
                 <div class="box">EVENT #5</div>
-                <div class="box">EVENT #6</div>
+                <div class="box">EVENT #6</div>-->
             </section>
+            <script>Events.PopulateContainer('your_events')</script>
         </div>
 
         <div class="eventContainer">
-            <h2>FIND NEW EVENTS:</h2>
-            <section class="find_events">
+            <h2>FIND NEW EVENTS</h2>
+            <section id="find_events" class="eventGrid">
                 <div class="box">EVENT #1</div>
                 <div class="box">EVENT #2</div>
                 <div class="box">EVENT #3</div>
@@ -45,8 +46,8 @@
         </div>
 
         <div class="eventContainer">
-            <h2>TRENDING EVENTS:</h2>
-            <section class="trending_events">
+            <h2>TRENDING EVENTS</h2>
+            <section id="trending_events" class="eventGrid">
                 <div class="box">EVENT #1</div>
                 <div class="box">EVENT #2</div>
                 <div class="box">EVENT #3</div>
