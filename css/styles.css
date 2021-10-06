@@ -8,70 +8,48 @@ body{
     font-family: 'Patrick Hand', cursive;
     font-size: larger;
     margin: 0 auto;
-    max-width: 90%;
-    background-color: solid rgb(56, 56, 47);
 }
 
-div.userEvents{
+nav.navBar {
+    padding: 1em;
+    background-color: #80d8d8;
+    width: 100%;
+}
+
+a.navButton {
+    color: white;
+    padding: 1em;
+    width: 1em;
+}
+
+a.navButton:hover {
+    background-color: #70caca;
+}
+
+div.eventContainer{
     margin: 0 auto;
     margin-top: 3em;
-    margin: 0 auto;
     margin-top: 3em;
-    border-color: solid black;
-    border-style: dashed;
     border-radius: 10px;
     text-align: center;
     width: 90%;
-    background: rgb(91,177,177);
-    background: rgb(91,177,177);
-    background: linear-gradient(0deg, rgba(91,177,177,0.5494572829131652) 14%, rgba(4,4,188,0.711038961038961) 66%);
+    background: linear-gradient(0deg, #80d8d8 14%, #2323da 66%);
 
 }
 
 div.box{
     margin: 1.2em;
-    color: rgba(20, 2, 2, 0.966);
+    color: white;
     font-weight: 600;
-    border:.9px dashed darkkhaki;
+    border: 1px solid lightgray;
     padding: 1.5em;
     border-radius: 15px;
 }
 
-div.findEvents{
-    margin: 0 auto;
-    margin-top: 3em;
-    margin: 0 auto;
-    margin-top: 3em;
-    border-color: solid black;
-    border-style: dashed;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    background: rgb(91,177,177);
-    background: rgb(91,177,177);
-    background: linear-gradient(0deg, rgba(91,177,177,0.5494572829131652) 14%, rgba(4,4,188,0.711038961038961) 66%);
-
-}
-div.trendingEvents{
-    margin: 0 auto;
-    margin-top: 3em;
-    margin: 0 auto;
-    margin-top: 3em;
-    border-color: solid black;
-    border-style: dashed;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    background: rgb(91,177,177);
-    background: rgb(91,177,177);
-    background: linear-gradient(0deg, rgba(91,177,177,0.5494572829131652) 14%, rgba(4,4,188,0.711038961038961) 66%);
-}
-
 h2{
-    background-color: rgb(4, 4, 141);
-    color:whitesmoke
+    background-color: #04048d;
+    color: whitesmoke
 }
-
 
 section.your_events{
     display: grid;
@@ -98,25 +76,26 @@ div.card {
     background-color: white;
     border-radius:3px 3px 3px 3px;
       overflow: hidden;
-  }
+}
+
 div.container {
     margin: 1em;
     font-family: "Arial";
-  }
+}
+
 div.footer {
     padding: 1em;
-  }
+}
 
 img.image_event {
     width: 100%;
-  }
+}
+
 button.view{
     border-radius:3px 0 0 3px;
-  }
+}
   
 button.edit{
     border-radius: 0 3px 3px 0;
     border-left: 0;
-  }
-  
-  
+}
