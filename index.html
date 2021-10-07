@@ -14,13 +14,14 @@
     <header>
         <nav class='navBar'>
             <div class="left">
-                <a href="index.html"><img onload="this.src=localStorage.getItem('iconurl'); console.log(this, localStorage.getItem('iconurl'))" alt='logo here'></a>
+                <a href="index.html"><img src="" alt='logo here'></a>
                 <a class="navButton active" href="">HOME</a>
                 <a class="navButton" href="">FAQS</a>
             </div>
             <div class="right">
                 <a class="navButton" href="">
-                    <img id="userIcon" src="images/user.jpg"/> 
+                    <img id="userIcon" onload="this.src=localStorage.getItem('iconurl'); console.log(this, localStorage.getItem('iconurl'))"/> 
+                    PROFILE
                 </a>
             </div>
         </nav>
