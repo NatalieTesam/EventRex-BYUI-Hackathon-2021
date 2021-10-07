@@ -20,8 +20,9 @@
             </div>
             <div class="right">
                 <a class="navButton" href="">
-                    <img id="userIcon" onload="this.src=localStorage.getItem('iconurl'); console.log(this, localStorage.getItem('iconurl'))"/> 
-                    PROFILE
+                    <img src="images/user.jpg" id="userIcon" onload="this.src=localStorage.getItem('iconurl')"/>
+                    <p id="profileName"></p> 
+                    <script>document.getElementById('profileName').innerText = localStorage.getItem('username')</script>
                 </a>
             </div>
         </nav>
