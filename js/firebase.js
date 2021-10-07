@@ -11,3 +11,7 @@ const app = initializeApp({
     measurementId: "G-45W9RE82W6"
 });
 const analytics = getAnalytics(app);
+
+window.getFirebaseApp = function() {
+    return app;
+}
