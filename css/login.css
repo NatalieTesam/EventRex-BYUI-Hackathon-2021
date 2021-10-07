@@ -1,0 +1,22 @@
+.header {
+    background-color: #98c5d4;
+    color: white;
+    border-radius: .5em .5em 0 0;
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginContainer {
+    max-width: 30em;
+    background-color: #d4ecf5;
+    height: 50vh;
+    margin: 25vh auto;
+    text-align: center;
+    border-radius: .5em;
+    box-shadow: .2em .2em .2em #a8a8a8;
+}
+
+.g-signin2 {
+    width: fit-content;
+    margin: 1em auto;
+}
