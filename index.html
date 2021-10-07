@@ -8,14 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <script src="js/events.js"></script>
+    <script type="module" src="js/firebase.js"></script>
     <title>Hackathon App</title>
 </head>
 <body>
     <!-- Check that we're logged in -->
     <script>
-        if (localStorage.getItem('username') === null) {
+        // Don't require login if we're viewing using liveserver (remove later)
+        if (localStorage.getItem('username') === null && window.location.hostname !== '127.0.0.1') {
             window.location = 'login.html';
         }
+        console.log(firebase.app)
     </script>
     <header>
         <nav class='navBar'>
