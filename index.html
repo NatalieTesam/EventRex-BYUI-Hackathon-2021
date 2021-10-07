@@ -11,6 +11,12 @@
     <title>Hackathon App</title>
 </head>
 <body>
+    <!-- Check that we're logged in -->
+    <script>
+        if (localStorage.getItem('username') === null) {
+            window.location = 'login.html';
+        }
+    </script>
     <header>
         <nav class='navBar'>
             <div class="left">
