@@ -13,6 +13,24 @@ const Events = (function () {
         for (let i = 0; i < testEvents.length; i++) {
             containerEle.appendChild(CreateEventCard(testEvents[i].name, testEvents[i].imgSrc, testEvents[i].desc));
         }
+
+        if (containerID === 'your_events') {
+            let addButton = document.createElement('a');
+            addButton.classList.add('card', 'cardBtn');
+            // Plus icon
+            addButton.innerHTML= '&#10133;';
+
+            containerEle.appendChild(addButton);
+        }
+
+        if (containerID === 'find_events') {
+            let findButton = document.createElement('a');
+            findButton.classList.add('card', 'cardBtn');
+            // Magnifying glass icon
+            findButton.innerHTML = '&#128269;';
+
+            containerEle.appendChild(findButton);
+        }
     }
 
     function CreateEventCard(name, imgSrc, desc) {

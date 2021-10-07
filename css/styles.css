@@ -11,6 +11,8 @@ body{
 }
 
 nav.navBar {
+    display: flex;
+    justify-content: space-between;
     padding: 1em;
     background-color: #80d8d8;
     width: 100%;
@@ -58,18 +60,26 @@ section.eventGrid{
     overflow-x: scroll;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    justify-items: center;
     margin: 1em;
 }
 
-div.card {
+.card {
     width: 320px;
     max-height: 30em;
-    box-shadow: 1px 1px 4px 1px #888;
     background-color: white;
     margin: .5em;
     border-radius: 3px;
     cursor: pointer;
     overflow: hidden;
+}
+
+a.cardBtn {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 50px;
+    text-align: center;
 }
 
 div.card img {
@@ -87,6 +97,14 @@ div.footer {
 
 img.image_event {
     width: 100%;
+}
+
+img#userIcon {
+    vertical-align: middle;
+    border-radius: 30px;
+    margin-right: .2em;
+    max-width: 1.4em;
+    max-height: 1.4em;
 }
 
 button.view{
