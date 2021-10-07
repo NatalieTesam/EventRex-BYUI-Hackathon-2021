@@ -14,7 +14,7 @@
     <header>
         <nav class='navBar'>
             <div class="left">
-                <a href="index.html"><img src='' onload="this.src=localStorage.getItem('iconurl')" alt='logo here' data-src='../homepage/media/temple-logo.png'></a>
+                <a href="index.html"><img onload="this.src=localStorage.getItem('iconurl'); console.log(this, localStorage.getItem('iconurl'))" alt='logo here'></a>
                 <a class="navButton active" href="">HOME</a>
                 <a class="navButton" href="">FAQS</a>
             </div>
