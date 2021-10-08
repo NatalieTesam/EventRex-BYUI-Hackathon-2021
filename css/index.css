@@ -10,17 +10,6 @@
     font-weight: bolder;
 }
 
-a:hover,
-a:active {
-border-top: 5px solid rgba(255, 136, 0, 0.842);
-  border-bottom: 5px solid rgba(255, 136, 0, 0.842);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 1s;
-  letter-spacing: .8px;
-  color: rgba(3, 1, 158, 0.856);
-}
-
 body{
     font-family: 'Helvetica', cursive;
     font-size: larger;

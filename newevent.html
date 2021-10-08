@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/newevent.css">
-    <script src="js/header.js"></script>
     <link rel="stylesheet" href="css/header.css">
+    <script src="js/header.js"></script>
+    <script src="js/events.js"></script>
+    <script asyncsrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
     <title>Create New Event</title>
 </head>
 <body>
@@ -13,8 +15,8 @@
         <div id="navBar">
             <div class="left">
                 <a href="index.html"><img id="logo" src="images/EventRexBlank.png"/></a>
-                <a class="navButton" id= "active" href="index.html">HOME</a>
-                <a class="navButton" href="newevent.html">NEW EVENT</a>
+                <a class="navButton" href="index.html">HOME</a>
+                <a class="navButton active" href="newevent.html">NEW EVENT</a>
                 <a class="navButton" href="faq.html">FAQS</a>
             </div>
             <div class="right">
@@ -27,47 +29,67 @@
         </div>
     </header>
 
-    <div class="inputContainer" style="margin-top: 7em">
-        <label for="eventName" class="inputLabel">Event name: </label>
-        <input id="eventName" class="eventInput" type="text"/>
-    </div>
-    
-    <div class="inputContainer">
-        <label class="inputLabel">Categories: </label>
-        <div class="categoryGrid">
-            <div id="parties" class="category">
-                <h3 class="title">Parties</h3>
-            </div>
-            <div id="dating" class="category">
-                <h3 class="title">Dating</h3>
-            </div>
-            <div id="games" class="category">
-                <h3 class="title">Games</h3>
-            </div>
-            <div id="music" class="category">
-                <h3 class="title">Music</h3>
-            </div>
-            <div id="dancing" class="category">
-                <h3 class="title">Dancing</h3>
-            </div>
-            <div id="food" class="category">
-                <h3 class="title">Food</h3>
-            </div>
-            <div class="category">
-                <h3 class="title"></h3>
-            </div>
-            <div id="other" class="category">
-                <h3 class="title">Other</h3>
+    <form action="index.html" onsubmit="events.SubmitNewEventForm(this)">
+        <div class="inputContainer" style="margin-top: 7em">
+            <label for="eventName" class="inputLabel">Event name: </label>
+            <input id="eventName" class="eventInput" type="text" required/>
+        </div>
+        
+        <div class="inputContainer">
+            <label class="inputLabel">Categories: </label>
+            <div class="categoryGrid">
+                <div id="parties" class="category">
+                    <h3 class="title">Parties</h3>
+                </div>
+                <div id="dating" class="category">
+                    <h3 class="title">Dating</h3>
+                </div>
+                <div id="games" class="category">
+                    <h3 class="title">Games</h3>
+                </div>
+                <div id="music" class="category">
+                    <h3 class="title">Music</h3>
+                </div>
+                <div id="dancing" class="category">
+                    <h3 class="title">Dancing</h3>
+                </div>
+                <div id="food" class="category">
+                    <h3 class="title">Food</h3>
+                </div>
+                <div class="category">
+                    <h3 class="title"></h3>
+                </div>
+                <div id="other" class="category">
+                    <h3 class="title">Other</h3>
+                </div>
             </div>
         </div>
-    </div>
 
+        <div class="inputContainer">
+            <label class="inputLabel">Date: </label>
+            <input id="eventDate" class="eventInput" type="date"/>
 
-    <div class="inputContainer">
-        <label class="inputLabel">Date: </label>
-        <input id="eventDate" class="eventInput" type="date"/>
-        <label class="inputLabel">Description: </label>
-        <input id="eventDesc" class="eventInput" type="textarea"/>
-    </div>
+            <label class="inputLabel">Location: </label>
+            <input id="addressAutocomplete" type="address"/>
+            <script>
+                let addressField = document.getElementById('addressAutocomplete');
+                autocomplete = new google.maps.places.Autocomplete(addressField, {
+                    componentRestrictions: { country: ["us"] },
+                    fields: ["address_components", "geometry"],
+                    types: ["address"],
+                });
+                autocomplete.addListener("place_changed", function () {
+                    const place = autocomplete.getPlace();
+                    console.log(place)
+                    //addressField.value = place.long_name;
+                });
+            </script>
+
+            <label class="inputLabel">Description: </label>
+            <textarea id="eventDesc" class="eventInput"></textarea>
+
+            <input type="submit" id="eventSubmit" value="Create Event!"/>
+        </div>
+    </form>
 </body>
 </html>

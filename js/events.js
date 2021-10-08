@@ -1,20 +1,19 @@
-const Events = (function () {
+const events = (function () {
     function DBGetEvents(cb) {
-        events = [];
+        ret = [];
         db.collection('events').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                events.push(doc.data());
+                ret.push(doc.data());
             });
-            cb(events);
+            cb(ret);
         });
     }
 
-    function DBCreateEvent() {
+    function DBCreateEvent(name, desc, imageName) {
         db.collection().add({
-            first: "Alan",
-            middle: "Mathison",
-            last: "Turing",
-            born: 1912
+            name: name,
+            desc: desc,
+            imageName: imageName
         })
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
@@ -26,9 +25,9 @@ const Events = (function () {
 
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
-        let events = DBGetEvents(function (events) {
-            for (let i = 0; i < events.length; i++) {
-                containerEle.appendChild(CreateEventCard(events[i].name, events[i].imgName, events[i].desc));
+        DBGetEvents(function (eventList) {
+            for (let i = 0; i < eventList.length; i++) {
+                containerEle.appendChild(CreateEventCard(eventList[i].name, eventList[i].imgName, eventList[i].desc));
             }
 
             if (containerID === 'your_events') {
@@ -49,6 +48,10 @@ const Events = (function () {
                 containerEle.appendChild(findButton);
             }
         });
+    }
+
+    function SubmitNewEventForm(form) {
+        console.log(form);
     }
 
     function CreateEventCard(name, imgName, desc) {
@@ -78,6 +81,6 @@ const Events = (function () {
 
     return {
         PopulateContainer: PopulateContainer,
-        CreateEvent: CreateEvent
+        SubmitNewEventForm: SubmitNewEventForm 
     }
 })();

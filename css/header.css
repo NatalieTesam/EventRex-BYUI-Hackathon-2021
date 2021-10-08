@@ -32,15 +32,18 @@
     padding: 1em;
 }
 
+.navButton.active {
+    background-color: #a6d8e7;
+}
+
+.navButton:hover {
+    background-color: #5ec0c0;
+}
+
 img#userIcon {
     vertical-align: middle;
     border-radius: 30px;
     margin-right: .2em;
     max-width: 1.4em;
     max-height: 1.4em;
-}
-
-
-.navButton:hover {
-    background-color: #5ec0c0;
 }

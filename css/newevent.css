@@ -38,6 +38,7 @@ div.inputContainer {
     border: 1px solid #d5e5ff;
     border-radius: .5em;
     width: 100%;
+    margin-bottom: 1em;
 }
 
 .inputLabel {
@@ -47,8 +48,18 @@ div.inputContainer {
 }
 
 #eventDesc {
-    min-height: 10em;
-    word-wrap: break-word;
+    min-height: 8em;
+}
+
+#eventSubmit {
+    margin: 2em auto 1em auto !important;
+    padding: 1em;
+    cursor: pointer;
+    background-color: #5ec0c0;
+    color: white;
+    border-radius: .5em;
+    border: none;
+    display: inherit;
 }
 
 .category#music {
