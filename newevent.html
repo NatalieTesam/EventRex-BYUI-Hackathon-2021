@@ -4,34 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/newevent.css">
+    <script src="js/header.js"></script>
+    <link rel="stylesheet" href="css/header.css">
     <title>Create New Event</title>
 </head>
 <body>
-    <div class="categoryGrid">
-        <div id="parties" class="category">
-            <h3 class="title">Parties</h3>
+    <header>
+        <div id="navBar">
+            <div class="left">
+                <a href="index.html"><img id="logo" src="images/EventRexBlank.png"/></a>
+                <a class="navButton" id= "active" href="index.html">HOME</a>
+                <a class="navButton" href="newevent.html">NEW EVENT</a>
+                <a class="navButton" href="faq.html">FAQS</a>
+            </div>
+            <div class="right">
+                <a class="navButton" href="profile.html">
+                    <img src="images/user.jpg" id="userIcon" onload="this.src=sessionStorage.getItem('iconurl')"/>
+                    <span id="profileName"></span> 
+                    <script>document.getElementById('profileName').innerText = sessionStorage.getItem('username')</script>
+                </a>
+            </div>
         </div>
-        <div id="dating" class="category">
-            <h3 class="title">Dating</h3>
+    </header>
+
+    <div class="inputContainer" style="margin-top: 7em">
+        <label for="eventName" class="inputLabel">Event name: </label>
+        <input id="eventName" class="eventInput" type="text"/>
+    </div>
+    
+    <div class="inputContainer">
+        <label class="inputLabel">Categories: </label>
+        <div class="categoryGrid">
+            <div id="parties" class="category">
+                <h3 class="title">Parties</h3>
+            </div>
+            <div id="dating" class="category">
+                <h3 class="title">Dating</h3>
+            </div>
+            <div id="games" class="category">
+                <h3 class="title">Games</h3>
+            </div>
+            <div id="music" class="category">
+                <h3 class="title">Music</h3>
+            </div>
+            <div id="dancing" class="category">
+                <h3 class="title">Dancing</h3>
+            </div>
+            <div id="food" class="category">
+                <h3 class="title">Food</h3>
+            </div>
+            <div class="category">
+                <h3 class="title"></h3>
+            </div>
+            <div id="other" class="category">
+                <h3 class="title">Other</h3>
+            </div>
         </div>
-        <div id="games" class="category">
-            <h3 class="title">Games</h3>
-        </div>
-        <div id="music" class="category">
-            <h3 class="title">Music</h3>
-        </div>
-        <div id="dancing" class="category">
-            <h3 class="title">Dancing</h3>
-        </div>
-        <div id="food" class="category">
-            <h3 class="title">Food</h3>
-        </div>
-        <div class="category">
-            <h3 class="title"></h3>
-        </div>
-        <div id="other" class="category">
-            <h3 class="title">Other</h3>
-        </div>
+    </div>
+
+
+    <div class="inputContainer">
+        <label class="inputLabel">Date: </label>
+        <input id="eventDate" class="eventInput" type="date"/>
+        <label class="inputLabel">Description: </label>
+        <input id="eventDesc" class="eventInput" type="textarea"/>
     </div>
 </body>
 </html>

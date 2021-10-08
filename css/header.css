@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#logo {
+    height: 4em;
+    margin: 0 1em -1.7em 1em;
+}
+
+#navBar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #d5e5ff;
+    transition: font-size .1s;
+    width: 100%;
+}
+
+.navButton {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    height: 5em;
+    line-height: 3.2em;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1em;
+}
+
+.navButton:hover {
+    background-color: #5ec0c0;
+}

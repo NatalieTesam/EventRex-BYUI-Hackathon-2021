@@ -9,6 +9,21 @@ const Events = (function () {
         });
     }
 
+    function DBCreateEvent() {
+        db.collection().add({
+            first: "Alan",
+            middle: "Mathison",
+            last: "Turing",
+            born: 1912
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+    }
+
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
         let events = DBGetEvents(function (events) {
@@ -62,6 +77,7 @@ const Events = (function () {
     }
 
     return {
-        PopulateContainer: PopulateContainer
+        PopulateContainer: PopulateContainer,
+        CreateEvent: CreateEvent
     }
 })();
