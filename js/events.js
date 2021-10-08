@@ -43,7 +43,7 @@ const Events = (function () {
         img.src = imgSrc;
 
         let container = document.createElement('div');
-        container.classList.add('container');
+        container.classList.add('eventCard');
 
         let title = document.createElement('h3');
         title.innerText = name;
