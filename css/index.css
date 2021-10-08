@@ -117,14 +117,6 @@ img.image_event {
     width: 100%;
 }
 
-img#userIcon {
-    vertical-align: middle;
-    border-radius: 30px;
-    margin-right: .2em;
-    max-width: 1.4em;
-    max-height: 1.4em;
-}
-
 button.view{
     border-radius:3px 0 0 3px;
 }
