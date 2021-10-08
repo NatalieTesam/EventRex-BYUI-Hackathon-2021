@@ -22,7 +22,7 @@ border-top: 5px solid rgba(255, 136, 0, 0.842);
 }
 
 body{
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Helvetica', cursive;
     font-size: larger;
     margin: 6em auto;
 }
@@ -39,8 +39,10 @@ body{
     font-size: 18px;
     display: flex;
     justify-content: space-between;
-    background-color: #80d8d8;
-    transition: font-size .1s; 
+    padding: 1em;
+    background-color: #d5e5ff;
+    transition: font-size .1s;
+    width: 100%;
 }
 
 .navButton {
@@ -65,7 +67,8 @@ div.eventContainer{
     border-radius: 10px;
     text-align: left;
     width: 90%;
-    background: lightblue
+    background: #f3f3f3
+
 }
 
 div.box{
@@ -79,8 +82,9 @@ div.box{
 }
 
 h2{
-    background-color: #135869;
+    background-color: #70a7ff;
     color: whitesmoke
+
 }
 
 section.eventGrid{
