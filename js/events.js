@@ -1,46 +1,47 @@
 const Events = (function () {
-    const testEvents = [
-        { name: 'test name', imgSrc: 'images/randomimage.jpg', desc: 'lorem ipsum dolor sit amet' },
-        { name: 'event name', imgSrc: 'images/randomimage.jpg', desc: 'a great event!' },
-        { name: 'party!!', imgSrc: 'images/randomimage.jpg', desc: 'it will knock your socks off!' },
-        { name: 'some friends gaming', imgSrc: 'images/mariokart.png', desc: 'anyone up for some mariokart?' },
-        { name: 'soda mixer', imgSrc: 'images/randomimage.jpg', desc: 'Come and mix some new Sodas, meet new people, and just have fun!' },
-        { name: 'soda mixer', imgSrc: 'images/randomimage.jpg', desc: 'Come and mix s meet new people, and just have fun!' }
-
-    ];
+    function DBGetEvents(cb) {
+        events = [];
+        db.collection('events').get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                events.push(doc.data());
+            });
+            cb(events);
+        });
+    }
 
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
+        let events = DBGetEvents(function (events) {
+            for (let i = 0; i < events.length; i++) {
+                containerEle.appendChild(CreateEventCard(events[i].name, events[i].imgName, events[i].desc));
+            }
 
-        for (let i = 0; i < testEvents.length; i++) {
-            containerEle.appendChild(CreateEventCard(testEvents[i].name, testEvents[i].imgSrc, testEvents[i].desc));
-        }
+            if (containerID === 'your_events') {
+                let addButton = document.createElement('a');
+                addButton.classList.add('card', 'cardBtn');
+                // Plus icon
+                addButton.innerHTML= '&#10133;';
 
-        if (containerID === 'your_events') {
-            let addButton = document.createElement('a');
-            addButton.classList.add('card', 'cardBtn');
-            // Plus icon
-            addButton.innerHTML= '&#10133;';
+                containerEle.appendChild(addButton);
+            }
 
-            containerEle.appendChild(addButton);
-        }
+            if (containerID === 'find_events') {
+                let findButton = document.createElement('a');
+                findButton.classList.add('card', 'cardBtn');
+                // Magnifying glass icon
+                findButton.innerHTML = '&#128269;';
 
-        if (containerID === 'find_events') {
-            let findButton = document.createElement('a');
-            findButton.classList.add('card', 'cardBtn');
-            // Magnifying glass icon
-            findButton.innerHTML = '&#128269;';
-
-            containerEle.appendChild(findButton);
-        }
+                containerEle.appendChild(findButton);
+            }
+        });
     }
 
-    function CreateEventCard(name, imgSrc, desc) {
+    function CreateEventCard(name, imgName, desc) {
         let card = document.createElement('div');
         card.classList.add('card');
 
         let img = document.createElement('img');
-        img.src = imgSrc;
+        img.src = 'images/' + imgName;
 
         let container = document.createElement('div');
         container.classList.add('eventCard');
