@@ -10,7 +10,7 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="js/mydb.js"></script>
 </head>
 <body>
     <img class="EventRexLogo" src="images/EventRex.png" >
@@ -18,42 +18,29 @@
         <div class="header">
             <h1>Welcome to EventRex!</h1>
         </div>
-        <div class="g-signin2" data-onsuccess="onSignIn"/>
+        <input type="button" onclick="eventrexLogin()" value="Log in with Google" class="loginBtn"/>
     </div>
 
     <script>
-        const app = firebase.initializeApp({
-            apiKey: "AIzaSyCPmLNhrIRjznM5QPHPimj-smI9FyTTssQ",
-            authDomain: "eventrex-328317.firebaseapp.com",
-            projectId: "eventrex-328317",
-            storageBucket: "eventrex-328317.appspot.com",
-            messagingSenderId: "23091519004",
-            appId: "1:23091519004:web:349f167605c8d3c29c49d9",
-            measurementId: "G-45W9RE82W6"
-        });
+        function eventrexLogin(googleUser) {
+            var provider = new firebase.auth.GoogleAuthProvider();
 
-        var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                /** @type {firebase.auth.OAuthCredential} */
+                var credential = result.credential;
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = credential.accessToken;
+                var user = result.user;
 
-        firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-            /** @type {firebase.auth.OAuthCredential} */
-            var credential = result.credential;
-
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            console.log('RESLT!!!', result);
-        }).catch((error) => {
-            console.error('Firebase login issue', error);
-        });
-
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            sessionStorage.setItem('username', profile.getGivenName());
-            sessionStorage.setItem('iconurl', profile.getImageUrl());
-            //window.location = 'index.html';
+                console.log('RESLT!!!', result);
+                sessionStorage.setItem('username', user.displayName);
+                sessionStorage.setItem('iconurl', user.photoURL);
+                window.location = 'index.html';
+            }).catch((error) => {
+                console.error('Firebase login issue', error);
+            });
         }
     </script>
 </body>
