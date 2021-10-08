@@ -7,31 +7,38 @@
 body{
     font-family: 'Patrick Hand', cursive;
     font-size: larger;
-    margin: 0 auto;
+    margin: 6em auto;
 }
 
-nav.navBar {
+#logo {
+    height: 4em;
+    margin: 0 1em -1.7em 1em;
+}
+
+#navBar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-size: 18px;
     display: flex;
     justify-content: space-between;
-    padding: 1em;
     background-color: #80d8d8;
-    width: 100%;
+    transition: font-size .1s; 
 }
 
-a.navButton {
+.navButton {
     color: white;
     text-decoration: none;
+    display: inline-block;
+    height: 5em;
+    line-height: 3.2em;
+    vertical-align: middle;
+    text-align: center;
     padding: 1em;
-    width: 1em;
 }
 
-a.navButton:hover {
-    background-color: #70caca;
-}
-
-.HomePageLogo {
-    height: 70px;
-
+.navButton:hover {
+    background-color: #5ec0c0;
 }
 
 div.eventContainer{
@@ -42,7 +49,6 @@ div.eventContainer{
     text-align: left;
     width: 90%;
     background: lightblue
-
 }
 
 div.box{

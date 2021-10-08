@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <script src="js/events.js"></script>
+    <script src="js/header.js"></script>
     <script type="module" src="js/firebase.js"></script>
     <title>Hackathon App</title>
 </head>
@@ -21,20 +22,20 @@
         console.log(getFirebaseApp())
     </script>
     <header>
-        <nav class='navBar'>
+        <div id="navBar">
             <div class="left">
-                <a href="index.html"><img class="HomePageLogo" src='images/EventRexBlank.png' alt='Event Rex Logo'></a>
-                <a class="navButton active" href="">HOME</a>
-                <a class="navButton" href="">FAQS</a>
+                <a href="index.html"><img id="logo" src="images/EventRexBlank.png"/></a>
+                <a class="navButton" href="newevent.html">New Event</a>
+                <a class="navButton" href="faq.html">FAQS</a>
             </div>
             <div class="right">
-                <a class="navButton" href="">
+                <a class="navButton" href="profile.html">
                     <img src="images/user.jpg" id="userIcon" onload="this.src=localStorage.getItem('iconurl')"/>
                     <span id="profileName"></span> 
                     <script>document.getElementById('profileName').innerText = localStorage.getItem('username')</script>
                 </a>
             </div>
-        </nav>
+        </div>
     </header>
     
     <main>
