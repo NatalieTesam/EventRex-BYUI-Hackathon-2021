@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="23091519004-nh3hhkgk3rru4edgvcrv8nfnpqf3ch0t.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>Login</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
 </head>
 <body>
-        <img class="EventRexLogo" src="images/EventRex.png" >
+    <img class="EventRexLogo" src="images/EventRex.png" >
     <div class="loginContainer">
         <div class="header">
             <h1>Welcome to EventRex!</h1>
@@ -19,11 +22,38 @@
     </div>
 
     <script>
+        const app = firebase.initializeApp({
+            apiKey: "AIzaSyCPmLNhrIRjznM5QPHPimj-smI9FyTTssQ",
+            authDomain: "eventrex-328317.firebaseapp.com",
+            projectId: "eventrex-328317",
+            storageBucket: "eventrex-328317.appspot.com",
+            messagingSenderId: "23091519004",
+            appId: "1:23091519004:web:349f167605c8d3c29c49d9",
+            measurementId: "G-45W9RE82W6"
+        });
+
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+            /** @type {firebase.auth.OAuthCredential} */
+            var credential = result.credential;
+
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            console.log('RESLT!!!', result);
+        }).catch((error) => {
+            console.error('Firebase login issue', error);
+        });
+
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
-            localStorage.setItem('username', profile.getGivenName());
-            localStorage.setItem('iconurl', profile.getImageUrl());
-            window.location = 'index.html';
+            sessionStorage.setItem('username', profile.getGivenName());
+            sessionStorage.setItem('iconurl', profile.getImageUrl());
+            //window.location = 'index.html';
         }
     </script>
 </body>
