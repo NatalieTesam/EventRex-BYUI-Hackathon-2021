@@ -39,7 +39,6 @@ body{
     font-size: 18px;
     display: flex;
     justify-content: space-between;
-    padding: 1em;
     background-color: #d5e5ff;
     transition: font-size .1s;
     width: 100%;
