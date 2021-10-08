@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/mydb.js"></script>
+    <title>Frequently Asked Questions</title>
+</head>
+
+<body>
+    <header>
+        <div id="navBar">
+            <div class="left">
+                <a href="index.html"><img id="logo" src="images/EventRexBlank.png"/></a>
+                <a class="navButton" href="newevent.html">NEW EVENT</a>
+                <a class="navButton" id= "active" href="index.html">HOME</a>
+                <a class="navButton" href="faq.html">FAQS</a>
+            </div>
+            <div class="right">
+                <a class="navButton" href="profile.html">
+                    <img src="images/user.jpg" id="userIcon" onload="this.src=sessionStorage.getItem('iconurl')"/>
+                    <span id="profileName"></span> 
+                    <script>document.getElementById('profileName').innerText = sessionStorage.getItem('username')</script>
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+    <main>
+        <div class='mainHeading'>
+            <H2>Frequently Asked Questions</H2>
+        </div>
+        <div class="sectionQuestions">
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        <div class="questionBox">
+            <h3 class="question">Q. How do I create an event?</h3>
+                <p class="answer">A. To create an event, click the plus button at the end of your events. 
+                    From there it should lead you to the menu to create an event hosted by you.
+                </p>
+        </div>
+        </div>
+
+    </main>
