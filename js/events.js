@@ -4,7 +4,9 @@ const Events = (function () {
         { name: 'event name', imgSrc: 'images/randomimage.jpg', desc: 'a great event!' },
         { name: 'party!!', imgSrc: 'images/randomimage.jpg', desc: 'it will knock your socks off!' },
         { name: 'some friends gaming', imgSrc: 'images/mariokart.png', desc: 'anyone up for some mariokart?' },
-        { name: 'soda mixer', imgSrc: 'images/randomimage.jpg', desc: 'Come and mix some new Sodas, meet new people, and just have fun!' }
+        { name: 'soda mixer', imgSrc: 'images/randomimage.jpg', desc: 'Come and mix some new Sodas, meet new people, and just have fun!' },
+        { name: 'soda mixer', imgSrc: 'images/randomimage.jpg', desc: 'Come and mix s meet new people, and just have fun!' }
+
     ];
 
     function PopulateContainer(containerID) {

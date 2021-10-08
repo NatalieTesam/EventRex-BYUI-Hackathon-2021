@@ -29,6 +29,11 @@ a.navButton:hover {
     background-color: #70caca;
 }
 
+.HomePageLogo {
+    height: 70px;
+
+}
+
 div.eventContainer{
     margin: 0 auto;
     margin-top: 3em;
@@ -58,7 +63,7 @@ h2{
 section.eventGrid{
     display: grid;
     overflow-x: scroll;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
     margin: 1em;

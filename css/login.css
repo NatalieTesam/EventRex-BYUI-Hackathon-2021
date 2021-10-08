@@ -6,6 +6,11 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.EventRexLogo {
+    height: 100px;
+    align-content: center;
+}
+
 .loginContainer {
     max-width: 30em;
     background-color: #d4ecf5;
