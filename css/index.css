@@ -65,7 +65,7 @@ div.eventContainer{
     margin-top: 3em;
     border-radius: 10px;
     text-align: left;
-    width: 90%;
+    width: 85%;
     background: #f3f3f3
 
 }
@@ -81,15 +81,22 @@ div.box{
 }
 
 h2{
-    background-color: #70a7ff;
-    color: whitesmoke
-
+    color: rgb(0, 0, 0);
+    font-family: "Montserrat", Helvetica, sans-serif;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+h3{
+    background-color: rgba(82, 129, 131, 0.219);
+    padding: 5px;
+    border-radius: 10px;
 }
 
 section.eventGrid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
     display: grid;
     overflow-x: scroll;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
     margin: 1em;
@@ -116,6 +123,16 @@ a.cardBtn {
 
 div.card img {
     max-height: 8em;
+}
+
+div.card
+{
+    border-radius: 10px;
+    padding: .8em;
+}
+
+div.card p{
+padding: 9px;
 }
 
 div.eventCard {
