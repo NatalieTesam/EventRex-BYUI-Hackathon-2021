@@ -4,6 +4,23 @@
     box-sizing: border-box;
 }
 
+#active{
+    background-color: rgba(45, 31, 109, 0.349);
+    color: rgba(170, 22, 22, 0.781);
+    font-weight: bolder;
+}
+
+a:hover,
+a:active {
+border-top: 5px solid rgba(255, 136, 0, 0.842);
+  border-bottom: 5px solid rgba(255, 136, 0, 0.842);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 1s;
+  letter-spacing: .8px;
+  color: rgba(3, 1, 158, 0.856);
+}
+
 body{
     font-family: 'Patrick Hand', cursive;
     font-size: larger;
@@ -127,4 +144,12 @@ button.view{
 button.edit{
     border-radius: 0 3px 3px 0;
     border-left: 0;
+}
+
+div#maura{
+    margin: 0 auto;
+    padding: 2em;
+    background-color: rgb(199, 180, 156);
+    border-radius: 20px 20px 0 0;
+    text-align: center;
 }
