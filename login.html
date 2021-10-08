@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="23091519004-nh3hhkgk3rru4edgvcrv8nfnpqf3ch0t.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>Login</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+    <script src="js/mydb.js"></script>
 </head>
 <body>
-        <img class="EventRexLogo" src="images/EventRex.png" >
+    <img class="EventRexLogo" src="images/EventRex.png" >
     <div class="loginContainer">
         <div class="header">
             <h1>Welcome to EventRex!</h1>
         </div>
-        <div class="g-signin2" data-onsuccess="onSignIn"/>
+        <input type="button" onclick="eventrexLogin()" value="Log in with Google" class="loginBtn"/>
     </div>
 
     <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            localStorage.setItem('username', profile.getGivenName());
-            localStorage.setItem('iconurl', profile.getImageUrl());
-            window.location = 'index.html';
+        function eventrexLogin(googleUser) {
+            var provider = new firebase.auth.GoogleAuthProvider();
+
+            firebase.auth()
+            .signInWithPopup(provider)
+            .then((result) => {
+                /** @type {firebase.auth.OAuthCredential} */
+                var credential = result.credential;
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = credential.accessToken;
+                var user = result.user;
+
+                console.log('RESLT!!!', result);
+                sessionStorage.setItem('username', user.displayName);
+                sessionStorage.setItem('iconurl', user.photoURL);
+                window.location = 'index.html';
+            }).catch((error) => {
+                console.error('Firebase login issue', error);
+            });
         }
     </script>
 </body>
