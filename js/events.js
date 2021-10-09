@@ -114,7 +114,7 @@ const events = (function () {
     function getCategoryEvents(radio){
         let result = document.getElementById("searchResult");
         let resultCards = [];
-        let i = 0;
+        let i = 1;
         db.collection("events").where("category", "==", radio.id).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
