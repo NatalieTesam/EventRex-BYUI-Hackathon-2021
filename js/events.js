@@ -5,7 +5,7 @@ const events = (function () {
         ret = [];
         db.collection('events').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                ret.push(doc.data());
+                ret.push(doc);
             });
             cb(ret);
         });
@@ -15,7 +15,8 @@ const events = (function () {
         let containerEle = document.getElementById(containerID);
         DBGetEvents(function (eventList) {
             for (let i = 0; i < eventList.length; i++) {
-                containerEle.appendChild(CreateEventCard(eventList[i].name, eventList[i].imgName, eventList[i].desc));
+                let eventData = eventList[i].data();
+                containerEle.appendChild(CreateEventCard(eventData.name, eventData.imgName, eventData.desc, eventList[i].id));
             }
 
             if (containerID === 'your_events') {
@@ -61,30 +62,40 @@ const events = (function () {
         });
     }
 
-    function CreateEventCard(name, imgName, desc) {
-        let card = document.createElement('div');
-        card.classList.add('card');
+    function CreateEventCard(name, imgName, desc, eventID) {
+        if (name) {
+            let card = document.createElement('div');
+            card.classList.add('card');
 
-        let container = document.createElement('div');
-        container.classList.add('eventCard');
+            let container = document.createElement('div');
+            container.classList.add('eventCard');
 
-        let title = document.createElement('h3');
-        title.innerText = name;
+            let link = document.createElement('a');
+            link.href = 'editevent.html?id=' + eventID;
 
-        let descParagraph = document.createElement('p');
-        descParagraph.innerText = desc;
+            let title = document.createElement('h3');
+            title.innerText = name;
 
-        container.appendChild(title);
-        container.appendChild(descParagraph);
+            let descParagraph = document.createElement('p');
+            descParagraph.innerText = desc;
 
-        if (imgName !== undefined) {
-            let img = document.createElement('img');
-            img.src = 'images/' + imgName;
-            card.appendChild(img);
+            if (imgName !== undefined) {
+                let img = document.createElement('img');
+                img.src = 'images/' + imgName;
+                link.appendChild(img);
+            }
+
+            container.appendChild(title);
+            container.appendChild(descParagraph);
+
+            link.appendChild(container);
+
+            card.appendChild(link);
+
+            return card;
+        } else {
+            return null;
         }
-        card.appendChild(container);
-
-        return card;
     }
 
     return {
