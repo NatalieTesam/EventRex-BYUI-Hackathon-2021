@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/header.css">
     <script src="js/header.js"></script>
     <script src="js/events.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="js/mydb.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
     <title>Create New Event</title>
 </head>
@@ -31,59 +34,74 @@
             </div>
         </div>
     </header>
+<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 
-    <form action="index.html" onsubmit="events.SubmitNewEventForm(this)">
+    <form action="#" target="dummyframe" onsubmit="events.SubmitNewEventForm(this)">
         <div class="inputContainer" style="margin-top: 7em">
             <label for="eventName" class="inputLabel">Event name: </label>
-            <input id="eventName" class="eventInput" type="text" required/>
+            <input name="name" class="eventInput" type="text" required/>
         </div>
         
         <div class="inputContainer">
             <label class="inputLabel">Categories: </label>
             <div class="categoryGrid">
-                <div id="parties" class="category">
-                    <h3 class="title">Parties</h3>
-                </div>
-                <div id="dating" class="category">
-                    <h3 class="title">Dating</h3>
-                </div>
-                <div id="games" class="category">
-                    <h3 class="title">Games</h3>
-                </div>
-                <div id="music" class="category">
-                    <h3 class="title">Music</h3>
-                </div>
-                <div id="dancing" class="category">
-                    <h3 class="title">Dancing</h3>
-                </div>
-                <div id="food" class="category">
-                    <h3 class="title">Food</h3>
-                </div>
-                <div class="category">
-                    <h3 class="title"></h3>
-                </div>
-                <div id="other" class="category">
-                    <h3 class="title">Other</h3>
-                </div>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="party" class="categoryRadio"/>
+                    <img src="images/IconPARTY.png" alt="Party"/>
+                    <h3>Party</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="campus" class="categoryRadio"/>
+                    <img src="images/IconCAMPUS.png" alt="Campus"/>
+                    <h3>Campus</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="games" class="categoryRadio"/>
+                    <img src="images/IconGames.png" alt="Games"/>
+                    <h3>Games</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="outdoors" class="categoryRadio"/>
+                    <img src="images/IconOUTDOORS.png" alt="Outdoors"/>
+                    <h3>Outdoors</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="gettogether" class="categoryRadio"/>
+                    <img src="images/IconGETTOGETHER.png" alt="Get Together"/>
+                    <h3>Get-Together</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="sport" class="categoryRadio"/>
+                    <img src="images/IconSPORT.png" alt="Sports"/>
+                    <h3>Sports</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="service" class="categoryRadio"/>
+                    <img src="images/IconSERVICE.png" alt="Service"/>
+                    <h3>Service</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="etc" class="categoryRadio"/>
+                    <img src="images/IconETC.png" alt="Miscellaneous"/>
+                    <h3>Miscellaneous</h3>
+                </label>
             </div>
         </div>
 
         <div class="inputContainer">
             <label class="inputLabel">Date: </label>
-            <input id="eventDate" class="eventInput" type="date"/>
+            <input name="date" class="eventInput" type="date"/>
 
             <label class="inputLabel">Location: </label>
-            <input id="addressAutocomplete" type="text" class="eventInput"/>
+            <input id="addressAutocomplete" name="address" type="text" class="eventInput"/>
             <script>
-                function initMap() {};
                 window.addEventListener('load', function() {
                     let addressField = document.getElementById('addressAutocomplete');
 
                     navigator.geolocation.getCurrentPosition(function(position) {
-                        console.log(position)
                         let lat = position.coords.latitude;
                         let long = position.coords.longitude;
-                        // Create a bounding box with sides 5km away from the center point
+                        // Create a bounding box with sides about 5km away from the current location
                         const myBounds = {
                             north: lat + 0.05,
                             south: lat - 0.05,
@@ -102,7 +120,7 @@
             </script>
 
             <label class="inputLabel">Description: </label>
-            <textarea id="eventDesc" class="eventInput"></textarea>
+            <textarea id="descInput" name="desc" class="eventInput"></textarea>
 
             <input type="submit" id="eventSubmit" value="Create Event!"/>
         </div>

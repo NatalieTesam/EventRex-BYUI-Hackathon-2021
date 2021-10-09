@@ -1,4 +1,6 @@
 const events = (function () {
+    const db = firebase.firestore();
+
     function DBGetEvents(cb) {
         ret = [];
         db.collection('events').get().then((querySnapshot) => {
@@ -6,20 +8,6 @@ const events = (function () {
                 ret.push(doc.data());
             });
             cb(ret);
-        });
-    }
-
-    function DBCreateEvent(name, desc, imageName) {
-        db.collection().add({
-            name: name,
-            desc: desc,
-            imageName: imageName
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
         });
     }
 
@@ -51,7 +39,26 @@ const events = (function () {
     }
 
     function SubmitNewEventForm(form) {
-        console.log(form);
+        let formData = {};
+        for (let i = 0; i < form.length; i++) {
+            if (form[i].type !== 'submit') {
+                if (form[i].type === 'radio') {
+                    if (form[i].checked) {
+                        formData[form[i].name] = form[i].id;
+                    }
+                } else {
+                    formData[form[i].name] = form[i].value;
+                }
+            }
+        }
+
+        db.collection('events').add(formData)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
     }
 
     function CreateEventCard(name, imgName, desc) {
