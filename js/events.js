@@ -1,9 +1,5 @@
 const events = (function () {
     const db = firebase.firestore();
-    const testData = [
-        { name: 'party at cedars', desc: 'huuuuge party on top of cedars', address: '11955 willowind ct', date: '2021-10-10', category: 'party' },
-        { name: 'raking leaves', desc: 'a good oppurtunity to help the elderly i love old people so much theyre so cool', address: 'retiremenet home', date: '2021-11-02', category: 'service' }
-    ];
 
     // Returns firestore document objects
     function DBGetEvents(cb) {
@@ -61,10 +57,10 @@ const events = (function () {
 
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
-        //DBGetEvents(function (eventList) {
+        DBGetEvents(function (eventList) {
             let eventList = testData;
             for (let i = 0; i < eventList.length; i++) {
-                let eventData = eventList[i];//.data();
+                let eventData = eventList[i].data();
                 containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, 'username', eventList[i].id));
             }
 
@@ -76,7 +72,7 @@ const events = (function () {
 
                 containerEle.appendChild(findButton);
             }
-        //});
+        });
     }
 
     function CreateEventCard(name, desc, category, authorName, eventID) {
