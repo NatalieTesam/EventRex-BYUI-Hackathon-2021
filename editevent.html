@@ -36,7 +36,7 @@
         </div>
     </header>
 
-    <form action="index.html" id="eventForm" onsubmit="events.SubmitEventForm(this)">
+    <form action="#" id="eventForm">
         <div class="inputContainer" style="margin-top: 7em">
             <label for="eventName" class="inputLabel">Event name: </label>
             <input id="eventName" name="name" class="eventInput" type="text" required/>
@@ -96,7 +96,7 @@
             <label class="inputLabel">Description: </label>
             <textarea id="eventDesc" name="desc" class="eventInput"></textarea>
 
-            <input type="submit" id="eventSubmit" value="Create Event!"/>
+            <input type="button" onclick="events.SubmitEventForm(this.form, () => window.location = 'index.html')" id="eventSubmit" value="Create Event!"/>
 
             <script>
                 window.addEventListener('load', function() {
@@ -105,12 +105,12 @@
                     navigator.geolocation.getCurrentPosition(function(position) {
                         let lat = position.coords.latitude;
                         let long = position.coords.longitude;
-                        // Create a bounding box with sides about 5km away from the current location
+                        // Create a box about 20km x 20km around the current location
                         const myBounds = {
-                            north: lat + 0.05,
-                            south: lat - 0.05,
-                            east: long + 0.05,
-                            west: long - 0.05,
+                            north: lat + 0.1,
+                            south: lat - 0.1,
+                            east: long + 0.1,
+                            west: long - 0.1,
                         };
 
                         autocomplete = new google.maps.places.Autocomplete(addressField, {
@@ -125,8 +125,8 @@
                     let cgi = new URLSearchParams(window.location.search);
                     let eventID = cgi.get('id');
                     if (eventID) {
-                        let eventForm = document.getElementById('eventForm');
-                        eventForm.onsubmit = function() { events.UpdateEvent(eventID, eventForm) };
+                        let submitButton = document.getElementById('eventSubmit');
+                        submitButton.onclick = function() { events.UpdateEvent(eventID, eventForm, () => window.location = 'index.html') };
 
                         events.GetEventData(eventID, eventData => {
                             document.getElementById('eventName').value = eventData.name;
@@ -134,12 +134,11 @@
                             document.getElementById('eventDate').value = eventData.date;
                             addressField.value = eventData.address;
                             document.getElementById('eventDesc').value = eventData.desc;
-                            document.getElementById('eventSubmit').value = 'Update Event!';
+                            submitButton.getElementById('eventSubmit').value = 'Update Event!';
                         });
                     }
                 });
             </script>
-
         </div>
     </form>
 </body>
