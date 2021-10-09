@@ -36,7 +36,7 @@
         </div>
     </header>
 
-    <form action="index.html" onsubmit="events.SubmitEventForm(this)">
+    <form action="index.html" id="eventForm" onsubmit="events.SubmitEventForm(this)">
         <div class="inputContainer" style="margin-top: 7em">
             <label for="eventName" class="inputLabel">Event name: </label>
             <input id="eventName" name="name" class="eventInput" type="text" required/>
@@ -91,9 +91,13 @@
         <div class="inputContainer">
             <label class="inputLabel">Date: </label>
             <input id="eventDate" name="date" class="eventInput" type="date"/>
-
             <label class="inputLabel">Location: </label>
             <input id="addressAutocomplete" name="address" type="text" class="eventInput"/>
+            <label class="inputLabel">Description: </label>
+            <textarea id="eventDesc" name="desc" class="eventInput"></textarea>
+
+            <input type="submit" id="eventSubmit" value="Create Event!"/>
+
             <script>
                 window.addEventListener('load', function() {
                     let addressField = document.getElementById('addressAutocomplete');
@@ -121,22 +125,21 @@
                     let cgi = new URLSearchParams(window.location.search);
                     let eventID = cgi.get('id');
                     if (eventID) {
+                        let eventForm = document.getElementById('eventForm');
+                        eventForm.onsubmit = function() { events.UpdateEvent(eventID, eventForm) };
+
                         events.GetEventData(eventID, eventData => {
-                            console.log(eventData)
                             document.getElementById('eventName').value = eventData.name;
                             document.getElementById(eventData.category).checked = true;
                             document.getElementById('eventDate').value = eventData.date;
                             addressField.value = eventData.address;
                             document.getElementById('eventDesc').value = eventData.desc;
+                            document.getElementById('eventSubmit').value = 'Update Event!';
                         });
                     }
                 });
             </script>
 
-            <label class="inputLabel">Description: </label>
-            <textarea id="eventDesc" name="desc" class="eventInput"></textarea>
-
-            <input type="submit" id="eventSubmit" value="Create Event!"/>
         </div>
     </form>
 </body>

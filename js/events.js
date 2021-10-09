@@ -16,6 +16,41 @@ const events = (function () {
         db.collection('events').doc(id).get().then(querySnapshot => cb(querySnapshot.data()));
     }
 
+    function GetFormEventData(form) {
+        let formData = {};
+        for (let i = 0; i < form.length; i++) {
+            if (form[i].type !== 'submit') {
+                if (form[i].type === 'radio') {
+                    if (form[i].checked) {
+                        formData[form[i].name] = form[i].id;
+                    }
+                } else {
+                    formData[form[i].name] = form[i].value;
+                }
+            }
+        }
+
+        return formData;
+    }
+
+    function UpdateEvent(id, form) {
+        let formData = GetFormEventData(form);
+        db.collection('events').doc(id).update(formData)
+        .then(docRef => console.log('updated doc id ' + docRef))
+        .catch(error => console.log('error updating doc id ' + docRef, error));
+    }
+
+    function SubmitEventForm(form) {
+        let formData = GetFormEventData(form);
+        db.collection('events').add(formData)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+    }
+
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
         DBGetEvents(function (eventList) {
@@ -41,29 +76,6 @@ const events = (function () {
 
                 containerEle.appendChild(findButton);
             }
-        });
-    }
-
-    function SubmitEventForm(form) {
-        let formData = {};
-        for (let i = 0; i < form.length; i++) {
-            if (form[i].type !== 'submit') {
-                if (form[i].type === 'radio') {
-                    if (form[i].checked) {
-                        formData[form[i].name] = form[i].id;
-                    }
-                } else {
-                    formData[form[i].name] = form[i].value;
-                }
-            }
-        }
-
-        db.collection('events').add(formData)
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
         });
     }
 
@@ -106,6 +118,7 @@ const events = (function () {
     return {
         PopulateContainer: PopulateContainer,
         SubmitEventForm: SubmitEventForm,
-        GetEventData: GetEventData
+        GetEventData: GetEventData,
+        UpdateEvent: UpdateEvent
     }
 })();
