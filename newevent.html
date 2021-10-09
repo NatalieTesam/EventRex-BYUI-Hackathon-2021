@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/header.css">
     <script src="js/header.js"></script>
     <script src="js/events.js"></script>
-    <script asyncsrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
     <title>Create New Event</title>
 </head>
 <body>
@@ -72,16 +72,18 @@
             <label class="inputLabel">Location: </label>
             <input id="addressAutocomplete" type="address"/>
             <script>
-                let addressField = document.getElementById('addressAutocomplete');
-                autocomplete = new google.maps.places.Autocomplete(addressField, {
-                    componentRestrictions: { country: ["us"] },
-                    fields: ["address_components", "geometry"],
-                    types: ["address"],
-                });
-                autocomplete.addListener("place_changed", function () {
-                    const place = autocomplete.getPlace();
-                    console.log(place)
-                    //addressField.value = place.long_name;
+                window.addEventListener('load', function() {
+                    let addressField = document.getElementById('addressAutocomplete');
+                    autocomplete = new google.maps.places.Autocomplete(addressField, {
+                        componentRestrictions: { country: ["us"] },
+                        fields: ["address_components", "geometry"],
+                        types: ["address"],
+                    });
+                    autocomplete.addListener("place_changed", function () {
+                        const place = autocomplete.getPlace();
+                        console.log(place)
+                        //addressField.value = place.long_name;
+                    });
                 });
             </script>
 
