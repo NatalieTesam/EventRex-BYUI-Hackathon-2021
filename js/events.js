@@ -11,6 +11,12 @@ const events = (function () {
         });
     }
 
+    function GetEventData(id, cb) {
+        db.collection('events').doc(id).get().then(querySnapshot => {
+            console.log(querySnapshot);
+        });
+    }
+
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
         DBGetEvents(function (eventList) {
@@ -100,6 +106,7 @@ const events = (function () {
 
     return {
         PopulateContainer: PopulateContainer,
-        SubmitEventForm: SubmitEventForm 
+        SubmitEventForm: SubmitEventForm,
+        GetEventData: GetEventData
     }
 })();

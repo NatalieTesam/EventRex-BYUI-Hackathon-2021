@@ -119,11 +119,16 @@
 
                     // Fill the fields if there are values in the URL
                     let cgi = new URLSearchParams(window.location.search);
-                    document.getElementById('eventName').value = cgi.get('name');
-                    document.getElementById(cgi.get('category')).checked = true;
-                    document.getElementById('eventDate').value = cgi.get('date');
-                    addressField.value = cgi.get('address');
-                    document.getElementById('eventDesc').value = cgi.get('desc');
+                    let eventID = cgi.get('id');
+                    if (eventID) {
+                        events.GetEventData(eventID, eventData => {
+                            document.getElementById('eventName').value = 
+                            document.getElementById(cgi.get('category')).checked = true;
+                            document.getElementById('eventDate').value = cgi.get('date');
+                            addressField.value = cgi.get('address');
+                            document.getElementById('eventDesc').value = cgi.get('desc');
+                        });
+                    }
                 });
             </script>
 
