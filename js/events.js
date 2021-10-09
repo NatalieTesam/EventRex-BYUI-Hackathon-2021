@@ -113,18 +113,12 @@ const events = (function () {
 
     function getCategoryEvents(radio){
         let result = document.getElementById("searchResult");
-        let resultCards = [];
-        let i = 1;
         db.collection("events").where("category", "==", radio.id).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
-                resultCards.push(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
+                result.push(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
                 console.log(doc.data(), i, resultCards, querySnapshot.size);
-                if (i === querySnapshot.size) {
-                    result.appendChild(resultCards);
-                }
-                i++;
             });
         })
 
