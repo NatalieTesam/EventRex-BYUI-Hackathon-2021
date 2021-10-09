@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/newevent.css">
     <link rel="stylesheet" href="css/header.css">
-    <script src="js/header.js"></script>
-    <script src="js/events.js"></script>
-    <script asyncsrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
+    <!--<script src="js/header.js"></script>
+    <script src="js/events.js"></script>-->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
     <title>Create New Event</title>
 </head>
 <body>
@@ -70,18 +70,35 @@
             <input id="eventDate" class="eventInput" type="date"/>
 
             <label class="inputLabel">Location: </label>
-            <input id="addressAutocomplete" type="address"/>
+            <input id="addressAutocomplete" type="text" class="eventInput"/>
             <script>
-                let addressField = document.getElementById('addressAutocomplete');
-                autocomplete = new google.maps.places.Autocomplete(addressField, {
-                    componentRestrictions: { country: ["us"] },
-                    fields: ["address_components", "geometry"],
-                    types: ["address"],
-                });
-                autocomplete.addListener("place_changed", function () {
-                    const place = autocomplete.getPlace();
-                    console.log(place)
-                    //addressField.value = place.long_name;
+                function initMap() {};
+                window.addEventListener('load', function() {
+                    let addressField = document.getElementById('addressAutocomplete');
+
+                    /*navigator.geolocation.getCurrentPosition(function(position) {
+                        let lat = position.coords.latitude;
+                        let long = position.coords.longitude;
+                        // Create a bounding box with sides 5km away from the center point
+                        const myBounds = {
+                            north: lat + 0.05,
+                            south: lat - 0.05,
+                            east: long + 0.05,
+                            west: long - 0.05,
+                        };*/
+
+                        autocomplete = new google.maps.places.Autocomplete(addressField, {
+                            //bounds: myBounds,
+                            //componentRestrictions: { country: "us" },
+                            //fields: ["formatted_address"],
+                            //types: ["address"],
+                        });
+                        autocomplete.addListener("place_changed", function () {
+                            const place = autocomplete.getPlace();
+                            console.log(place)
+                            //addressField.value = place.long_name;
+                        });
+                    //});
                 });
             </script>
 

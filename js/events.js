@@ -58,8 +58,10 @@ const events = (function () {
         let card = document.createElement('div');
         card.classList.add('card');
 
-        let img = document.createElement('img');
-        img.src = 'images/' + imgName;
+        if (imgName !== undefined) {
+            let img = document.createElement('img');
+            img.src = 'images/' + imgName;
+        }
 
         let container = document.createElement('div');
         container.classList.add('eventCard');
