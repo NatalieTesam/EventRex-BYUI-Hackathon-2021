@@ -124,6 +124,7 @@ const events = (function () {
                 if (i === querySnapshot.size) {
                     result.appendChild(resultCards);
                 }
+                i++;
             });
         })
 
