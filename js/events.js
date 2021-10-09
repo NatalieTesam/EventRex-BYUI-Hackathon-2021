@@ -1,6 +1,7 @@
 const events = (function () {
     const db = firebase.firestore();
 
+    // Returns firestore document objects
     function DBGetEvents(cb) {
         ret = [];
         db.collection('events').get().then((querySnapshot) => {
@@ -12,9 +13,7 @@ const events = (function () {
     }
 
     function GetEventData(id, cb) {
-        db.collection('events').doc(id).get().then(querySnapshot => {
-            console.log(querySnapshot);
-        });
+        db.collection('events').doc(id).get().then(querySnapshot => cb(querySnapshot.data()));
     }
 
     function PopulateContainer(containerID) {

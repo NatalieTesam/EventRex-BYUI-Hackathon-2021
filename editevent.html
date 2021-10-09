@@ -122,11 +122,12 @@
                     let eventID = cgi.get('id');
                     if (eventID) {
                         events.GetEventData(eventID, eventData => {
-                            document.getElementById('eventName').value = 
-                            document.getElementById(cgi.get('category')).checked = true;
-                            document.getElementById('eventDate').value = cgi.get('date');
-                            addressField.value = cgi.get('address');
-                            document.getElementById('eventDesc').value = cgi.get('desc');
+                            console.log(eventData)
+                            document.getElementById('eventName').value = eventData.name;
+                            document.getElementById(eventData.category).checked = true;
+                            document.getElementById('eventDate').value = eventData.date;
+                            addressField.value = eventData.address;
+                            document.getElementById('eventDesc').value = eventData.desc;
                         });
                     }
                 });
