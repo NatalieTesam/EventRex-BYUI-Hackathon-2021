@@ -3,7 +3,7 @@ const events = (function () {
 
     // Returns firestore document objects
     function DBGetEvents(cb) {
-        ret = [];
+        let ret = [];
         db.collection('events').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 ret.push(doc);
