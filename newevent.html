@@ -79,7 +79,8 @@
                 window.addEventListener('load', function() {
                     let addressField = document.getElementById('addressAutocomplete');
 
-                    /*navigator.geolocation.getCurrentPosition(function(position) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        console.log(position)
                         let lat = position.coords.latitude;
                         let long = position.coords.longitude;
                         // Create a bounding box with sides 5km away from the center point
@@ -88,20 +89,15 @@
                             south: lat - 0.05,
                             east: long + 0.05,
                             west: long - 0.05,
-                        };*/
+                        };
 
                         autocomplete = new google.maps.places.Autocomplete(addressField, {
-                            //bounds: myBounds,
-                            //componentRestrictions: { country: "us" },
-                            //fields: ["formatted_address"],
-                            //types: ["address"],
+                            bounds: myBounds,
+                            componentRestrictions: { country: "us" },
+                            fields: ["formatted_address"],
+                            types: ["address"],
                         });
-                        autocomplete.addListener("place_changed", function () {
-                            const place = autocomplete.getPlace();
-                            console.log(place)
-                            //addressField.value = place.long_name;
-                        });
-                    //});
+                    });
                 });
             </script>
 
