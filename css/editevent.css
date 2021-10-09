@@ -2,31 +2,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.categoryGrid {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 1em;
-    grid-row-gap: 1em;
-    margin-top: 1em;
-}
-
-.category {
-    background-color: black;
-    text-align: center;
-    color: white;
-    border-radius: .5em;
-    padding: 3em;
-    background-size: cover;
-    cursor: pointer;
-    transition: box-shadow .1s;
-}
-
-.category:hover {
-    box-shadow: 2px 2px 2px gray;
-}
-
 div.inputContainer {
     padding: 2em;
     background-color: #f5f4f4;
@@ -62,26 +37,3 @@ div.inputContainer {
     display: inherit;
 }
 
-/* Hide the radio button input, we only want to see the images */
-.categoryRadio { 
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.categoryRadio + img {
-    cursor: pointer;
-    height: 150px;
-    padding: .2em;
-    border-radius: .5em;
-}
-
-.categoryRadio:checked + img {
-    outline: 4px solid lightgreen;
-}
-
-.categoryLabel {
-    color: gray;
-    text-align: center;
-}

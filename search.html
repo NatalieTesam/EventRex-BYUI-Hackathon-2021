@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/categorypicker.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script src="js/header.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
@@ -34,5 +36,67 @@
             </div>
         </div>
     </header>
+    <h1>&#128270; SEARCH</h1>
+    <main>
+        <div class="inputContainer">
+            <label class="inputLabel">Select the Category:</label>
+            <div class="categoryGrid">
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="party" class="categoryRadio"/>
+                    <img src="images/IconPARTY.png" alt="Party"/>
+                    <h3>Party</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="campus" class="categoryRadio"/>
+                    <img src="images/IconCAMPUS.png" alt="Campus"/>
+                    <h3>Campus</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="games" class="categoryRadio"/>
+                    <img src="images/IconGames.png" alt="Games"/>
+                    <h3>Games</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="outdoors" class="categoryRadio"/>
+                    <img src="images/IconOUTDOORS.png" alt="Outdoors"/>
+                    <h3>Outdoors</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="gettogether" class="categoryRadio"/>
+                    <img src="images/IconGETTOGETHER.png" alt="Get Together"/>
+                    <h3>Get-Together</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="sport" class="categoryRadio"/>
+                    <img src="images/IconSPORT.png" alt="Sports"/>
+                    <h3>Sports</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="service" class="categoryRadio"/>
+                    <img src="images/IconSERVICE.png" alt="Service"/>
+                    <h3>Service</h3>
+                </label>
+                <label class="categoryLabel">
+                    <input type="radio" name="category" id="etc" class="categoryRadio"/>
+                    <img src="images/IconETC.png" alt="Miscellaneous"/>
+                    <h3>Miscellaneous</h3>
+                </label>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id='footer'>
+              <div class="gmaps"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=rexburg%20&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">google maps create map</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
+              <div class="developers">
+                <h3>Developers</h3>
+                <p><img src="https://img.icons8.com/nolan/64/email.png"/><span>Tesam, Natalie </span></p>
+                <p><img src="https://img.icons8.com/nolan/64/email.png"/><span>Jones, Levi </span></p>
+                <p><img src="https://img.icons8.com/nolan/64/email.png"/><span>Tenango, Ismael</span></p>
+                <p><img src="https://img.icons8.com/nolan/64/email.png"/><span>Camargo, Jaden </span></p>
+              </div>
+          </div>
+    </footer>
+
 </body>
 </html>
