@@ -3,7 +3,7 @@ const events = (function () {
 
     // Returns firestore document objects
     function DBGetEvents(cb) {
-        ret = [];
+        let ret = [];
         db.collection('events').get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 ret.push(doc);
@@ -19,7 +19,7 @@ const events = (function () {
     function GetFormEventData(form) {
         let formData = {};
         for (let i = 0; i < form.length; i++) {
-            if (form[i].type !== 'submit') {
+            if (form[i].type !== 'button') {
                 if (form[i].type === 'radio') {
                     if (form[i].checked) {
                         formData[form[i].name] = form[i].id;
@@ -33,17 +33,23 @@ const events = (function () {
         return formData;
     }
 
-    function UpdateEvent(id, form) {
+    function UpdateEvent(id, form, cb) {
+        console.log('updating event', form)
         let formData = GetFormEventData(form);
         db.collection('events').doc(id).update(formData)
-        .then(docRef => console.log('updated doc id ' + docRef))
+        .then(docRef => {
+            cb(docRef);
+            console.log('updated doc id ' + docRef)
+        })
         .catch(error => console.log('error updating doc id ' + docRef, error));
     }
 
-    function SubmitEventForm(form) {
+    function SubmitEventForm(form, cb) {
         let formData = GetFormEventData(form);
+        console.log('creating event with data ', formData);
         db.collection('events').add(formData)
         .then((docRef) => {
+            cb(docRef);
             console.log("Document written with ID: ", docRef.id);
         })
         .catch((error) => {
@@ -56,7 +62,7 @@ const events = (function () {
         DBGetEvents(function (eventList) {
             for (let i = 0; i < eventList.length; i++) {
                 let eventData = eventList[i].data();
-                containerEle.appendChild(CreateEventCard(eventData.name, eventData.imgName, eventData.desc, eventList[i].id));
+                containerEle.appendChild(CreateEventCard(eventData.name, eventData.imgName, eventList[i].id));
             }
 
             if (containerID === 'your_events') {
@@ -79,7 +85,7 @@ const events = (function () {
         });
     }
 
-    function CreateEventCard(name, imgName, desc, eventID) {
+    function CreateEventCard(name, imgName, eventID) {
         if (name) {
             let card = document.createElement('div');
             card.classList.add('card');
@@ -93,9 +99,6 @@ const events = (function () {
             let title = document.createElement('h3');
             title.innerText = name;
 
-            let descParagraph = document.createElement('p');
-            descParagraph.innerText = desc;
-
             if (imgName !== undefined) {
                 let img = document.createElement('img');
                 img.src = 'images/' + imgName;
@@ -103,10 +106,7 @@ const events = (function () {
             }
 
             container.appendChild(title);
-            container.appendChild(descParagraph);
-
             link.appendChild(container);
-
             card.appendChild(link);
 
             return card;
