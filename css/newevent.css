@@ -62,30 +62,26 @@ div.inputContainer {
     display: inherit;
 }
 
-.category#music {
-    background-image: url("https://static.euronews.com/articles/stories/05/42/38/88/1100x619_cmsv2_6e94f611-cc4a-59b4-a57e-d7b9fe7336c8-5423888.jpg");
+/* Hide the radio button input, we only want to see the images */
+.categoryRadio { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-.category#parties {
-    background-image: url("https://st.depositphotos.com/1002111/2556/i/950/depositphotos_25565783-stock-photo-young-party-people.jpg");
+.categoryRadio + img {
+    cursor: pointer;
+    height: 150px;
+    padding: .2em;
+    border-radius: .5em;
 }
 
-.category#dating {
-    background-image: url("https://media.istockphoto.com/photos/couple-of-young-people-drinking-coffee-and-eating-cake-in-a-stylish-picture-id1031314174?k=20&m=1031314174&s=612x612&w=0&h=j0M1ByR9nw5HBL_kdvefM4m5_TsT_TbvmE2JP-JsCho=");
+.categoryRadio:checked + img {
+    outline: 4px solid lightgreen;
 }
 
-.category#games {
-    background-image: url("https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F550349%2Fglu-mobile.jpg&w=700&op=resize");
-}
-
-.category#dancing {
-    background-image: url("https://st3.depositphotos.com/8331440/34840/v/600/depositphotos_348407598-stock-video-cremona-italy-may-2019-couples.jpg");
-}
-
-.category#food {
-    background-image: url("https://st3.depositphotos.com/3591429/12859/i/600/depositphotos_128596508-stock-photo-thanksgiving-celebration-concept.jpg");
-}
-
-.category#other {
-    background-color: gray;
+.categoryLabel {
+    color: gray;
+    text-align: center;
 }

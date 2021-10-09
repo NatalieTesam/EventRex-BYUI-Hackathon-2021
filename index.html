@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="js/mydb.js"></script>
     <script src="js/events.js"></script>
     <script src="js/header.js"></script>
-    <script src="js/mydb.js"></script>
     <title>Hackathon App</title>
 </head>
 <body>
@@ -23,7 +23,6 @@
         if (sessionStorage.getItem('username') === null && window.location.hostname !== '127.0.0.1') {
             window.location = 'login.html';
         }
-        const db = firebase.firestore();
     </script>
     <header>
         <div id="navBar">

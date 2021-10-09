@@ -9,20 +9,6 @@ const events = (function () {
         });
     }
 
-    function DBCreateEvent(name, desc, imageName) {
-        db.collection().add({
-            name: name,
-            desc: desc,
-            imageName: imageName
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
-    }
-
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
         DBGetEvents(function (eventList) {
@@ -51,17 +37,31 @@ const events = (function () {
     }
 
     function SubmitNewEventForm(form) {
-        console.log(form);
+        let formData = {};
+        for (let i = 0; i < form.length; i++) {
+            if (form[i].type !== 'submit') {
+                if (form[i].type === 'radio') {
+                    if (form[i].checked) {
+                        formData[form[i].name] = form[i].id;
+                    }
+                } else {
+                    formData[form[i].name] = form[i].value;
+                }
+            }
+        }
+
+        db.collection('events').add(formData)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
     }
 
     function CreateEventCard(name, imgName, desc) {
         let card = document.createElement('div');
         card.classList.add('card');
-
-        if (imgName !== undefined) {
-            let img = document.createElement('img');
-            img.src = 'images/' + imgName;
-        }
 
         let container = document.createElement('div');
         container.classList.add('eventCard');
@@ -75,7 +75,11 @@ const events = (function () {
         container.appendChild(title);
         container.appendChild(descParagraph);
 
-        card.appendChild(img);
+        if (imgName !== undefined) {
+            let img = document.createElement('img');
+            img.src = 'images/' + imgName;
+            card.appendChild(img);
+        }
         card.appendChild(container);
 
         return card;
