@@ -16,7 +16,7 @@ body{
     margin: 6em auto;
 }
 
-div.eventContainer{
+div.eventContainer {
     margin: 0 auto;
     margin-top: 3em;
     margin-top: 3em;
@@ -24,50 +24,53 @@ div.eventContainer{
     text-align: left;
     width: 85%;
     background: #f3f3f3
-
 }
 
-div.box{
-    margin: 1.2em;
-    color: white;
-    font-weight: 600;
-    border: 1px solid lightgray;
-    padding: 1.5em;
-    border-radius: 15px;
-    cursor: pointer;
+.eventContainer h2 {
+    margin-left: .5em;
 }
 
-h2{
-    color: rgb(0, 0, 0);
-    font-family: "Montserrat", Helvetica, sans-serif;
-    padding: 1em;
-    margin-bottom: 1em;
-}
-h3{
-    background-color: rgba(82, 129, 131, 0.219);
-    padding: 5px;
-    border-radius: 10px;
+.containerHeader {
+    background-color: #e6e6e6;
+    border-radius: .5em .5em 0 0;
+    padding: .2em;
 }
 
 section.eventGrid{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0 auto;
     display: grid;
-    overflow-x: scroll;
     align-items: center;
     justify-items: center;
     margin: 1em;
 }
 
-.card {
-    width: 320px;
+.eventGrid a {
+    text-decoration: none;
+}
+
+div.card {
+    width: 20em;
     max-height: 30em;
-    background-color: rgba(230, 223, 223, 0.74);
+    color: black;
+    background-color: #e6dfdf;
     margin: .5em;
-    border-radius: 3px;
+    padding: .8em;
+    padding-bottom: 0;
     cursor: pointer;
-    overflow: hidden;
-    text-align: center;
+    border-radius: .5em;
+    box-shadow: 1px 2px 2px lightgray;
+    transition: box-shadow .2s;
+}
+
+div.card:hover {
+    box-shadow: 2px 5px 2px lightgray;
+}
+
+div.card img {
+    width: 30px;
+    margin-top: 1em;
+    margin-right: .4em;
 }
 
 a.cardBtn {
@@ -78,36 +81,9 @@ a.cardBtn {
     text-align: center;
 }
 
-div.card img {
-    max-height: 8em;
-}
-
-div.card
-{
-    border-radius: 10px;
-    padding: .8em;
-}
-
-div.card p{
-padding: 9px;
-}
-
-div.eventCard {
-    margin: 1em;
-    font-family: "Arial";
-    text-align: left;
-}
-
-
-img.image_event {
-    width: 100%;
-}
-
-button.view{
-    border-radius:3px 0 0 3px;
-}
-  
-button.edit{
-    border-radius: 0 3px 3px 0;
-    border-left: 0;
+.card span {
+    height: 45px;
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }

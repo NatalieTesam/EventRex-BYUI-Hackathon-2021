@@ -1,5 +1,9 @@
 const events = (function () {
     const db = firebase.firestore();
+    const testData = [
+        { name: 'party at cedars', desc: 'huuuuge party on top of cedars', address: '11955 willowind ct', date: '2021-10-10', category: 'party' },
+        { name: 'raking leaves', desc: 'a good oppurtunity to help the elderly i love old people so much theyre so cool', address: 'retiremenet home', date: '2021-11-02', category: 'service' }
+    ];
 
     // Returns firestore document objects
     function DBGetEvents(cb) {
@@ -34,19 +38,17 @@ const events = (function () {
     }
 
     function UpdateEvent(id, form, cb) {
-        console.log('updating event', form)
         let formData = GetFormEventData(form);
         db.collection('events').doc(id).update(formData)
         .then(docRef => {
             cb(docRef);
-            console.log('updated doc id ' + docRef)
+            console.log('updated doc id ', docRef.id)
         })
         .catch(error => console.log('error updating doc id ' + docRef, error));
     }
 
     function SubmitEventForm(form, cb) {
         let formData = GetFormEventData(form);
-        console.log('creating event with data ', formData);
         db.collection('events').add(formData)
         .then((docRef) => {
             cb(docRef);
@@ -59,19 +61,11 @@ const events = (function () {
 
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
-        DBGetEvents(function (eventList) {
+        //DBGetEvents(function (eventList) {
+            let eventList = testData;
             for (let i = 0; i < eventList.length; i++) {
-                let eventData = eventList[i].data();
-                containerEle.appendChild(CreateEventCard(eventData.name, eventData.imgName, eventList[i].id));
-            }
-
-            if (containerID === 'your_events') {
-                let addButton = document.createElement('a');
-                addButton.classList.add('card', 'cardBtn');
-                // Plus icon
-                addButton.innerHTML= '&#10133;';
-
-                containerEle.appendChild(addButton);
+                let eventData = eventList[i];//.data();
+                containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, 'username', eventList[i].id));
             }
 
             if (containerID === 'find_events') {
@@ -82,34 +76,41 @@ const events = (function () {
 
                 containerEle.appendChild(findButton);
             }
-        });
+        //});
     }
 
-    function CreateEventCard(name, imgName, eventID) {
+    function CreateEventCard(name, desc, category, authorName, eventID) {
         if (name) {
-            let card = document.createElement('div');
-            card.classList.add('card');
-
-            let container = document.createElement('div');
-            container.classList.add('eventCard');
-
             let link = document.createElement('a');
             link.href = 'editevent.html?id=' + eventID;
 
-            let title = document.createElement('h3');
-            title.innerText = name;
+            let card = document.createElement('div');
+            card.classList.add('card');
 
-            if (imgName !== undefined) {
-                let img = document.createElement('img');
-                img.src = 'images/' + imgName;
-                link.appendChild(img);
+            let titleEle = document.createElement('h3');
+            titleEle.innerText = name;
+            card.appendChild(titleEle);
+
+            if (desc) {
+                let descEle = document.createElement('p');
+                descEle.innerText = desc.substring(0, 30);
+                card.appendChild(descEle);
             }
 
-            container.appendChild(title);
-            link.appendChild(container);
-            card.appendChild(link);
+            if (category) {
+                let categoryImg = document.createElement('img');
+                let categoryLabel = document.createElement('span');
+                categoryImg.src = 'images/Icon' + category.toUpperCase() + '.png';
+                categoryImg.classList.add('categoryImg');
+                categoryLabel.innerText = category;
 
-            return card;
+                card.appendChild(categoryImg);
+                card.appendChild(categoryLabel);
+            }
+
+            link.appendChild(card);
+
+            return link;
         } else {
             return null;
         }
