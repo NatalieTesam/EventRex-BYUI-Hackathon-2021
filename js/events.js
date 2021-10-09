@@ -65,11 +65,6 @@ const events = (function () {
         let card = document.createElement('div');
         card.classList.add('card');
 
-        if (imgName !== undefined) {
-            let img = document.createElement('img');
-            img.src = 'images/' + imgName;
-        }
-
         let container = document.createElement('div');
         container.classList.add('eventCard');
 
@@ -82,7 +77,11 @@ const events = (function () {
         container.appendChild(title);
         container.appendChild(descParagraph);
 
-        card.appendChild(img);
+        if (imgName !== undefined) {
+            let img = document.createElement('img');
+            img.src = 'images/' + imgName;
+            card.appendChild(img);
+        }
         card.appendChild(container);
 
         return card;
