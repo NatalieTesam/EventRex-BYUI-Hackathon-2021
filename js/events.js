@@ -112,10 +112,22 @@ const events = (function () {
         }
     }
 
+    function getCategoryEvents(radio){
+
+        db.collection("events").where("category", "==", radio.id).get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc.data());
+            });
+        })
+
+    }
+
     return {
         PopulateContainer: PopulateContainer,
         SubmitEventForm: SubmitEventForm,
         GetEventData: GetEventData,
-        UpdateEvent: UpdateEvent
+        UpdateEvent: UpdateEvent,
+        getCategoryEvents: getCategoryEvents
     }
 })();
