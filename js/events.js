@@ -38,7 +38,7 @@ const events = (function () {
         });
     }
 
-    function SubmitNewEventForm(form) {
+    function SubmitEventForm(form) {
         let formData = {};
         for (let i = 0; i < form.length; i++) {
             if (form[i].type !== 'submit') {
@@ -89,6 +89,6 @@ const events = (function () {
 
     return {
         PopulateContainer: PopulateContainer,
-        SubmitNewEventForm: SubmitNewEventForm 
+        SubmitEventForm: SubmitEventForm 
     }
 })();

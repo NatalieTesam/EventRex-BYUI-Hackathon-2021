@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/newevent.css">
+    <link rel="stylesheet" href="css/editevent.css">
     <link rel="stylesheet" href="css/header.css">
     <script src="js/header.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
@@ -14,7 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
     <script src="js/mydb.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
-    <title>Create New Event</title>
+    <title>Event Editor</title>
 </head>
 <body>
     <header>
@@ -22,7 +22,7 @@
             <div class="left">
                 <a href="index.html"><img id="logo" src="images/EventRexBlank.png"/></a>
                 <a class="navButton" href="index.html">HOME</a>
-                <a class="navButton active" href="newevent.html">NEW EVENT</a>
+                <a class="navButton active" href="editevent.html">NEW EVENT</a>
                 <a class="navButton" href="faq.html">FAQS</a>
             </div>
             <div class="right">
@@ -37,12 +37,11 @@
             </div>
         </div>
     </header>
-<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 
-    <form action="#" target="dummyframe" onsubmit="events.SubmitNewEventForm(this)">
+    <form action="index.html" onsubmit="events.SubmitEventForm(this)">
         <div class="inputContainer" style="margin-top: 7em">
             <label for="eventName" class="inputLabel">Event name: </label>
-            <input name="name" class="eventInput" type="text" required/>
+            <input id="eventName" name="name" class="eventInput" type="text" required/>
         </div>
         
         <div class="inputContainer">
@@ -93,7 +92,7 @@
 
         <div class="inputContainer">
             <label class="inputLabel">Date: </label>
-            <input name="date" class="eventInput" type="date"/>
+            <input id="eventDate" name="date" class="eventInput" type="date"/>
 
             <label class="inputLabel">Location: </label>
             <input id="addressAutocomplete" name="address" type="text" class="eventInput"/>
@@ -119,11 +118,19 @@
                             types: ["address"],
                         });
                     });
+
+                    // Fill the fields if there are values in the URL
+                    let cgi = new URLSearchParams(window.location.search);
+                    document.getElementById('eventName').value = cgi.get('name');
+                    document.getElementById(cgi.get('category')).checked = true;
+                    document.getElementById('eventDate').value = cgi.get('date');
+                    addressField.value = cgi.get('address');
+                    document.getElementById('eventDesc').value = cgi.get('desc');
                 });
             </script>
 
             <label class="inputLabel">Description: </label>
-            <textarea id="descInput" name="desc" class="eventInput"></textarea>
+            <textarea id="eventDesc" name="desc" class="eventInput"></textarea>
 
             <input type="submit" id="eventSubmit" value="Create Event!"/>
         </div>

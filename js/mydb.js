@@ -7,4 +7,5 @@ firebase.initializeApp({
     appId: "1:23091519004:web:349f167605c8d3c29c49d9",
     measurementId: "G-45W9RE82W6"
 });
+firestore.settings({timestampsInSnapshots: true});
 const db = firebase.firestore();
