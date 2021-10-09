@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/newevent.css">
     <link rel="stylesheet" href="css/header.css">
-    <!--<script src="js/header.js"></script>
-    <script src="js/events.js"></script>-->
+    <script src="js/header.js"></script>
+    <script src="js/events.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAc36s7FZgWYx1RmTW8Yvk131I1S0r7S0&libraries=places"></script>
     <title>Create New Event</title>
 </head>
@@ -21,9 +21,12 @@
             </div>
             <div class="right">
                 <a class="navButton" href="profile.html">
-                    <img src="images/user.jpg" id="userIcon" onload="this.src=sessionStorage.getItem('iconurl')"/>
+                    <img src="images/user.jpg" id="userIcon"/>
                     <span id="profileName"></span> 
-                    <script>document.getElementById('profileName').innerText = sessionStorage.getItem('username')</script>
+                    <script>
+                        document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
+                        document.getElementById('profileName').innerText = sessionStorage.getItem('username');
+                    </script>
                 </a>
             </div>
         </div>

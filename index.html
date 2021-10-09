@@ -35,9 +35,12 @@
             </div>
             <div class="right">
                 <a class="navButton" href="profile.html">
-                    <img src="images/user.jpg" id="userIcon" onload="this.src=sessionStorage.getItem('iconurl')"/>
+                    <img src="images/user.jpg" id="userIcon"/>
                     <span id="profileName"></span> 
-                    <script>document.getElementById('profileName').innerText = sessionStorage.getItem('username')</script>
+                    <script>
+                        document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
+                        document.getElementById('profileName').innerText = sessionStorage.getItem('username');
+                    </script>
                 </a>
             </div>
         </div>
