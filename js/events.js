@@ -118,7 +118,7 @@ const events = (function () {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
-                resultCards.append(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
+                resultCards.push(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
                 // console.log(doc.data());
 
             });
