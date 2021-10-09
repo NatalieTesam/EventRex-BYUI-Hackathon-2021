@@ -39,8 +39,10 @@ body {
     margin-right: auto;
     margin-top: 10px;
     text-align: center;
-    border-radius: .5em;
-    box-shadow: .2em .2em .2em #a8a8a8;
+    border-radius: 1em;
+    border-style: solid;
+    border-color: #6ba7bc;
+    border-width: thick;
 }
 
 .g-signin2 {
