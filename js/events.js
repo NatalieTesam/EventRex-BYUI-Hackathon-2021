@@ -58,7 +58,6 @@ const events = (function () {
     function PopulateContainer(containerID) {
         let containerEle = document.getElementById(containerID);
         DBGetEvents(function (eventList) {
-            let eventList = testData;
             for (let i = 0; i < eventList.length; i++) {
                 let eventData = eventList[i].data();
                 containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, 'username', eventList[i].id));
