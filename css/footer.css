@@ -20,6 +20,22 @@ div.developers p{
     padding: 10px;
 }
 
+.mapouter{
+    width: 100%;
+    margin: 0 auto;
+}
+
+img.email{
+    height: 40px;
+}
+div.developers section{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+div.developers p a{
+    font-size: x-large;
+    text-decoration: none;
+}
 
 
 
