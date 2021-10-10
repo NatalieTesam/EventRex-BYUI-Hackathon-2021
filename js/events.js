@@ -138,10 +138,15 @@ const events = (function () {
     }
 
     function getCategoryEvents(radio){
-        let result = document.getElementById("searchResults");
+        let results = document.getElementById("searchResults");
         let resultCards = document.createElement("div");
         resultCards.classList.add("eventGrid");
         let i = 1;
+
+        // Clear the container
+        while (results.firstChild) {
+            results.removeChild(results.firstChild);
+        }
 
         //db.collection("events").where("category", "==", radio.id).get()
         //.then((querySnapshot) => {
@@ -152,7 +157,7 @@ const events = (function () {
                     resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, 'username', /*doc.id*/123));
                     //if (i == querySnapshot.size) {
                     if (i == fakeData.length) {
-                        result.appendChild(resultCards);
+                        results.appendChild(resultCards);
                     }
                     i++;
                 }
