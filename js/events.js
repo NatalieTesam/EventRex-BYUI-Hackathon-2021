@@ -55,12 +55,16 @@ const events = (function () {
 
     function UpdateEvent(id, form, cb) {
         let formData = GetFormEventData(form);
+        formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date + 'T' + formData.time));
+        console.log(formData)
         db.collection('events').doc(id).update(formData)
         .then(docRef => {
-            cb(docRef);
-            console.log('updated doc id ', docRef.id)
+            cb();
+            if (docRef) {
+                console.log('updated doc id ', docRef.id)
+            }
         })
-        .catch(error => console.log('error updating doc id ' + docRef, error));
+        .catch(error => console.log('error updating document', error));
     }
 
     function SubmitEventForm(form, cb) {
@@ -103,7 +107,7 @@ const events = (function () {
         });
     }
 
-    function CreateEventCard(name, desc, category, date, isAuthor, eventID) {
+    function CreateEventCard(name, desc, category, datetime, isAuthor, eventID) {
         if (name) {
             let link = document.createElement('a');
             if (isAuthor) {
@@ -136,8 +140,8 @@ const events = (function () {
                 card.appendChild(categoryLabel);
             }
 
-            if (date) {
-                let localDate = new Date(date);
+            if (datetime) {
+                let localDate = datetime.toDate();
                 let dateLabel = document.createElement('span');
                 dateLabel.innerText = localDate.toLocaleDateString('en-us');
                 dateLabel.classList.add('eventDate');
@@ -166,7 +170,7 @@ const events = (function () {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
-                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, (docData.author === sessionStorage.getItem('uid')), docData.date, doc.id));
+                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, (docData.author === sessionStorage.getItem('uid')), docData.datetime, doc.id));
                 if (i == querySnapshot.size) {
                     results.appendChild(resultCards);
                 }
@@ -182,7 +186,7 @@ const events = (function () {
         .then(snapshot => {
             snapshot.forEach(doc => {
                 let docData = doc.data();
-                containerEle.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, true, doc.id));
+                containerEle.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.datetime, true, doc.id));
             });
         })
         .catch(error => console.log('error getting my events:', error));
