@@ -143,7 +143,9 @@ const events = (function () {
             if (datetime) {
                 let localDate = datetime.toDate();
                 let dateLabel = document.createElement('span');
-                dateLabel.innerText = localDate.toLocaleDateString('en-us');
+                // A <BR>? What is this, the 1990s?
+                dateLabel.innerHTML = localDate.toLocaleDateString('en-us') + '<br>' + 
+                    localDate.getHours() + ':' + localDate.getMinutes().toString().padStart(2, '0');
                 dateLabel.classList.add('eventDate');
                 card.appendChild(dateLabel);
             }
