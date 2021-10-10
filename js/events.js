@@ -62,6 +62,7 @@ const events = (function () {
     function SubmitEventForm(form, cb) {
         if (form.reportValidity()) {
             let formData = GetFormEventData(form);
+            formData.datetime = firebase.firestore.Timestamp.fromDate(formData.date);
             formData.author = sessionStorage.getItem('uid');
             db.collection('events').add(formData)
             .then((docRef) => {
@@ -179,8 +180,10 @@ const events = (function () {
             });
         })
         .catch(error => console.log('error getting my events:', error));
+    }
 
-        // Get rsvp'd events
+    function GetNewEvents(containerID) {
+        let containerEle = document.getElementById(containerID);
     }
 
     return {
@@ -189,6 +192,7 @@ const events = (function () {
         GetEventData: GetEventData,
         UpdateEvent: UpdateEvent,
         getCategoryEvents: getCategoryEvents,
-        GetMyEvents: GetMyEvents
+        GetMyEvents: GetMyEvents,
+        GetNewEvents: Ge
     }
 })();
