@@ -34,6 +34,11 @@ div.developers section{
     grid-template-columns: 1fr 1fr;
 }
 
+.gmap_canvas {
+    border: 5px solid white;
+    border-radius: 1em;
+}
+
 
 
 
