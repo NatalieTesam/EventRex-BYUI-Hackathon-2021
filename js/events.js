@@ -114,7 +114,7 @@ const events = (function () {
 
     function getCategoryEvents(radio){
         console.log(document.body);
-        let result = document.getElementById("searchResult");
+        let result = document.getElementById("searchResults");
         let resultCards = [];
         let i = 1;
         db.collection("events").where("category", "==", radio.id).get()
