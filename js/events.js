@@ -121,6 +121,7 @@ const events = (function () {
                 let docData = doc.data();
                 console.log(docData.name, docData.desc, docData.category, 'username', doc.id);
                 resultCards.push(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
+                console.log(resultCards)
                 if (i === querySnapshot.size) {
                     result.appendChild(resultCards);
                 }
