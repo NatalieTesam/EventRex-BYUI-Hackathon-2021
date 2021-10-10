@@ -196,7 +196,7 @@ const events = (function () {
 
     function GetNewEvents(containerID) {
         let containerEle = document.getElementById(containerID);
-        citiesRef.orderBy("name", "desc").limit(3)
+        db.collection('events').orderBy("name", "desc").limit(3)
         .then(snapshot => {
             snapshot.forEach(doc => {
                 console.log(doc)
