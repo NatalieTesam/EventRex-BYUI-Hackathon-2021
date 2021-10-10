@@ -148,21 +148,17 @@ const events = (function () {
             results.removeChild(results.firstChild);
         }
 
-        //db.collection("events").where("category", "==", radio.id).get()
-        //.then((querySnapshot) => {
-            //querySnapshot.forEach((doc) => {
-                //let docData = doc.data();
-                for (let j = 0; j < fakeData.length; j++) {
-                    let docData = fakeData[j];
-                    resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, 'username', /*doc.id*/123));
-                    //if (i == querySnapshot.size) {
-                    if (i == fakeData.length) {
-                        results.appendChild(resultCards);
-                    }
-                    i++;
+        db.collection("events").where("category", "==", radio.id).get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                let docData = doc.data();
+                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, 'username', /*doc.id*/123));
+                if (i == querySnapshot.size) {
+                    results.appendChild(resultCards);
                 }
-            //});
-        //});
+                i++;
+            });
+        });
     }
 
     return {
