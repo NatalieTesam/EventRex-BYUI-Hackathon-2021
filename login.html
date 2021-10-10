@@ -34,10 +34,10 @@
                 var token = credential.accessToken;
                 var user = result.user;
 
-                console.log('RESLT!!!', result);
                 sessionStorage.setItem('username', user.displayName);
                 sessionStorage.setItem('iconurl', user.photoURL);
-                //window.location = 'index.html';
+                sessionStorage.setItem('uid', user.uid);
+                window.location = 'index.html';
             }).catch((error) => {
                 console.error('Firebase login issue', error);
             });
