@@ -152,7 +152,7 @@ const events = (function () {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
-                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, (docData.author === sessionStorage.getItem('uid')), docData.datetime, doc.id));
+                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category,  docData.datetime, (docData.author === sessionStorage.getItem('uid')), doc.id));
                 if (i == querySnapshot.size) {
                     results.appendChild(resultCards);
                 }
