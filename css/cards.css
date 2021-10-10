@@ -92,6 +92,7 @@ div#searchResults div.eventGrid div.card{
 .card .eventDate {
     float: right;
     margin-top: 1em;
+    text-align: right;
 }
 
 .card.party {
