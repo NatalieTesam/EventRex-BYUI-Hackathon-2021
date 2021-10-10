@@ -133,7 +133,6 @@
                         submitButton.onclick = function() { events.UpdateEvent(eventID, eventForm, () => window.location = 'index.html') };
 
                         events.GetEventData(eventID, eventData => {
-                            console.log(eventData);
                             document.getElementById('eventName').value = eventData.name;
                             document.getElementById(eventData.category).checked = true;
                             document.getElementById('eventDate').value = eventData.datetime.toISOString().split('T')[0];
