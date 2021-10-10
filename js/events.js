@@ -81,7 +81,7 @@ const events = (function () {
             });
         }
         else{
-            window.alert("Please, choose fill all the required elements");
+            window.alert("Please, fill all the required elements");
         }
     }
 
