@@ -73,11 +73,12 @@ const events = (function () {
     }
 
     function PopulateContainer(containerID) {
+        return
         let containerEle = document.getElementById(containerID);
         DBGetEvents(function (eventList) {
             for (let i = 0; i < eventList.length; i++) {
                 let eventData = eventList[i].data();
-                containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, eventData.date, 'username', eventList[i].id));
+                containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, eventData.date, eventList[i].id));
             }
 
             if (containerID === 'find_events') {
@@ -92,10 +93,14 @@ const events = (function () {
         });
     }
 
-    function CreateEventCard(name, desc, category, date, eventID) {
+    function CreateEventCard(name, desc, category, date, isAuthor, eventID) {
         if (name) {
             let link = document.createElement('a');
-            link.href = 'editevent.html?id=' + eventID;
+            if (isAuthor) {
+                link.href = 'editevent.html?id=' + eventID;
+            } else {
+                link.href = 'viewevent.html?id=' + eventID;
+            }
 
             let card = document.createElement('div');
             card.classList.add('card', category);
@@ -151,7 +156,7 @@ const events = (function () {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
-                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, 'username', /*doc.id*/123));
+                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, (docData.author === sessionStorage.getItem('uid')), docData.date, doc.id));
                 if (i == querySnapshot.size) {
                     results.appendChild(resultCards);
                 }
@@ -160,11 +165,27 @@ const events = (function () {
         });
     }
 
+    function GetMyEvents(containerID) {
+        // Get personally created events
+        let containerEle = document.getElementById(containerID);
+        db.collection("events").where("uid", "==", sessionStorage.getItem('uid')).get()
+        .then(snapshot => {
+            snapshot.forEach(doc => {
+                let docData = doc.data();
+                containerEle.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, true, doc.id));
+            });
+        })
+        .catch(error => console.log('error getting my events:', error));
+
+        // Get rsvp'd events
+    }
+
     return {
         PopulateContainer: PopulateContainer,
         SubmitEventForm: SubmitEventForm,
         GetEventData: GetEventData,
         UpdateEvent: UpdateEvent,
-        getCategoryEvents: getCategoryEvents
+        getCategoryEvents: getCategoryEvents,
+        GetMyEvents: GetMyEvents
     }
 })();
