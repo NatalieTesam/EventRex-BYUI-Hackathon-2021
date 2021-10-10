@@ -70,11 +70,11 @@
         if (eventID) {
             events.GetEventData(eventID, eventData => {
                 console.log(eventData)
-                document.getElementById('eventName').value = eventData.name;
-                document.getElementById('Author').value = eventData.author;
-                document.getElementById('eventTime').value = eventData.datetime.toISOString().split('T')[0];
-                document.getElementById('date').value = eventData.datetime.getHours().toString().padStart(2, '0') + ':' + eventData.datetime.getMinutes().toString().padStart(2, '0');
-                document.getElementById('address').value = eventData.address;
+                document.getElementById('eventName').innerText = eventData.name;
+                document.getElementById('Author').innerText = eventData.author;
+                document.getElementById('eventTime').innerText = eventData.datetime.toISOString().split('T')[0];
+                document.getElementById('date').innerText = eventData.datetime.getHours().toString().padStart(2, '0') + ':' + eventData.datetime.getMinutes().toString().padStart(2, '0');
+                document.getElementById('address').innerText = eventData.address;
             });
         }
     </script>
