@@ -55,6 +55,7 @@ const events = (function () {
 
     function UpdateEvent(id, form, cb) {
         let formData = GetFormEventData(form);
+        formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date + 'T' + formData.time));
         db.collection('events').doc(id).update(formData)
         .then(docRef => {
             cb(docRef);
@@ -67,7 +68,6 @@ const events = (function () {
         if (form.reportValidity()) {
             let formData = GetFormEventData(form);
             formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date + 'T' + formData.time));
-            console.log(formData);
             formData.author = sessionStorage.getItem('uid');
             db.collection('events').add(formData)
             .then((docRef) => {
