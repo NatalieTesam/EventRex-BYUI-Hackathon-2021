@@ -19,11 +19,11 @@ body{
 div.eventContainer {
     margin: 0 auto;
     margin-top: 3em;
-    margin-top: 3em;
     border-radius: 10px;
     text-align: left;
     width: 85%;
     background: #f3f3f3
+    padding-bottom: 1em;
 }
 
 .eventContainer h2 {

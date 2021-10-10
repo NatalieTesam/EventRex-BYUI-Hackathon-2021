@@ -42,17 +42,17 @@
         <p>
             <img src="images/user.jpg" id="userIcon" alt="profile picture"/>
             <span id="profileName"></span> 
-            <script>
-                let username = sessionStorage.getItem('username');
-                document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
-                document.getElementById('profileName').innerText = username;
-                document.getElementById('username').innerText = username;
-            </script>
         </p>
         <div class="profileInformation">
             <p>Name: <span id="username"></span></p>
             <p>E-Mail Address: </p>
         </div>
+        <script>
+            let username = sessionStorage.getItem('username');
+            document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
+            document.getElementById('profileName').innerText = username;
+            document.getElementById('username').innerText = username;
+        </script>
     </div>
 </main>
     <footer>
