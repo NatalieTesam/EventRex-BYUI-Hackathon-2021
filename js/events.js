@@ -61,6 +61,7 @@ const events = (function () {
 
     function SubmitEventForm(form, cb) {
         let formData = GetFormEventData(form);
+        formData.author = sessionStorage.getItem('uid');
         db.collection('events').add(formData)
         .then((docRef) => {
             cb(docRef);
