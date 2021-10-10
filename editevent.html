@@ -136,9 +136,8 @@
                             console.log(eventData);
                             document.getElementById('eventName').value = eventData.name;
                             document.getElementById(eventData.category).checked = true;
-                            let isoDate = eventData.datetime.toISOString().split('T');
-                            document.getElementById('eventDate').value = isoDate[0];
-                            document.getElementById('eventTime').value = isoDate[1];
+                            document.getElementById('eventDate').value = eventData.datetime.toISOString().split('T')[0];
+                            document.getElementById('eventTime').value = eventData.datetime.getHours() + ':' + eventData.datetime.getMinutes();
                             addressField.value = eventData.address;
                             document.getElementById('eventDesc').value = eventData.desc;
                             submitButton.value = 'Update Event!';

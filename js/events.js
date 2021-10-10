@@ -182,7 +182,6 @@ const events = (function () {
         .then(snapshot => {
             snapshot.forEach(doc => {
                 let docData = doc.data();
-                console.log(docData)
                 containerEle.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, true, doc.id));
             });
         })
