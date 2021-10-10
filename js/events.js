@@ -193,6 +193,6 @@ const events = (function () {
         UpdateEvent: UpdateEvent,
         getCategoryEvents: getCategoryEvents,
         GetMyEvents: GetMyEvents,
-        GetNewEvents: Ge
+        GetNewEvents: GetNewEvents
     }
 })();
