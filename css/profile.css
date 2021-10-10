@@ -10,8 +10,7 @@ div.viewProfile{
 }
 
 div.viewProfile{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    text-align: center;
 }
 div.viewProfile p{
     padding: 1.2em;
