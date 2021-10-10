@@ -133,10 +133,12 @@
                         submitButton.onclick = function() { events.UpdateEvent(eventID, eventForm, () => window.location = 'index.html') };
 
                         events.GetEventData(eventID, eventData => {
+                            console.log(eventData);
                             document.getElementById('eventName').value = eventData.name;
                             document.getElementById(eventData.category).checked = true;
-                            document.getElementById('eventDate').value = eventData.date;
-                            document.getElementById('eventTime').value = eventData.time;
+                            let isoDate = eventData.datetime.toISOString().split('T');
+                            document.getElementById('eventDate').value = isoDate[0];
+                            document.getElementById('eventTime').value = isoDate[1];
                             addressField.value = eventData.address;
                             document.getElementById('eventDesc').value = eventData.desc;
                             submitButton.value = 'Update Event!';
