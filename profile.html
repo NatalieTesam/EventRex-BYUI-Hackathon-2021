@@ -38,10 +38,17 @@
     </header>
 <main>
     <div class="viewProfile">
-        <h1 id="profileName">Profile Name</h1>
-        <img id="profileImage" src="" alt="profile image">
+        <h1 id="profileName">Profile</h1>
+        <p>
+            <img src="images/user.jpg" id="userIcon" alt="profile picture"/>
+            <span id="profileName"></span> 
+            <script>
+                document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
+                document.getElementById('profileName').innerText = sessionStorage.getItem('username');
+            </script>
+        </p>
         <div class="profileInformation">
-            <p>Name</p>
+            <p>Name: <span id="profileName"></span></p>
             <p>E-Mail Address</p>
         </div>
     </div>
