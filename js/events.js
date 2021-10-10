@@ -60,16 +60,18 @@ const events = (function () {
     }
 
     function SubmitEventForm(form, cb) {
-        let formData = GetFormEventData(form);
-        formData.author = sessionStorage.getItem('uid');
-        db.collection('events').add(formData)
-        .then((docRef) => {
-            cb(docRef);
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
+        if (form.reportValidity()) {
+            let formData = GetFormEventData(form);
+            formData.author = sessionStorage.getItem('uid');
+            db.collection('events').add(formData)
+            .then((docRef) => {
+                cb(docRef);
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+        }
     }
 
     function PopulateContainer(containerID) {
@@ -167,7 +169,6 @@ const events = (function () {
 
     function GetMyEvents(containerID) {
         // Get personally created events
-        console.log('getting my events');
         let containerEle = document.getElementById(containerID);
         db.collection("events").where("author", "==", sessionStorage.getItem('uid')).get()
         .then(snapshot => {
