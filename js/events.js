@@ -113,7 +113,6 @@ const events = (function () {
     }
 
     function getCategoryEvents(radio){
-        console.log(document.body);
         let result = document.getElementById("searchResults");
         let resultCards = document.createElement("div");
         let i = 1;
@@ -121,17 +120,13 @@ const events = (function () {
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
-                console.log(docData.name, docData.desc, docData.category, 'username', doc.id);
                 resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
-                console.log(i, querySnapshot.size);
                 if (i == querySnapshot.size) {
-                    console.log(resultCards);
                     result.appendChild(resultCards);
                 }
                 i++;
             });
-        })
-
+        });
     }
 
     return {

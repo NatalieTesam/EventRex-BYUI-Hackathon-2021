@@ -1,0 +1,52 @@
+
+div.card:hover {
+    box-shadow: 2px 5px 2px lightgray;
+}
+
+div.card img {
+    width: 30px;
+    margin-top: 1em;
+    margin-right: .4em;
+}
+
+a.cardBtn {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 50px;
+    text-align: center;
+}
+
+.card span {
+    height: 45px;
+    vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+section.eventGrid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin: 1em;
+}
+
+.eventGrid a {
+    text-decoration: none;
+}
+
+div.card {
+    width: 20em;
+    max-height: 30em;
+    color: black;
+    background-color: #e6dfdf;
+    margin: .5em;
+    padding: .8em;
+    padding-bottom: 0;
+    cursor: pointer;
+    border-radius: .5em;
+    box-shadow: 1px 2px 2px lightgray;
+    transition: box-shadow .2s;
+}
