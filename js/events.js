@@ -113,6 +113,7 @@ const events = (function () {
     }
 
     function getCategoryEvents(radio){
+        console.log(document.body);
         let result = document.getElementById("searchResult");
         let resultCards = [];
         let i = 1;
