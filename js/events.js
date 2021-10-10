@@ -188,7 +188,6 @@ const events = (function () {
     }
 
     return {
-        PopulateContainer: PopulateContainer,
         SubmitEventForm: SubmitEventForm,
         GetEventData: GetEventData,
         UpdateEvent: UpdateEvent,
