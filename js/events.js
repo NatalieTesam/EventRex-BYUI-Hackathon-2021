@@ -196,12 +196,15 @@ const events = (function () {
 
     function GetNewEvents(containerID) {
         let containerEle = document.getElementById(containerID);
-        db.collection('events').orderBy("name", "desc").limit(3)
+        db.collection('events')
+        .orderBy("timestamp", "desc")
+        .limit(5)
+        .get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-                console.log(doc)
-            });
-        });
+                console.log(doc.getData())
+            })
+        })
     }
 
     return {
@@ -213,6 +216,4 @@ const events = (function () {
         GetMyEvents: GetMyEvents,
         GetNewEvents: GetNewEvents
     }
-
-
 })();
