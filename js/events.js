@@ -60,7 +60,7 @@ const events = (function () {
             cb(docRef);
             console.log('updated doc id ', docRef.id)
         })
-        .catch(error => console.log('error updating doc id ' + docRef, error));
+        .catch(error => console.log('error updating document', error));
     }
 
     function SubmitEventForm(form, cb) {
