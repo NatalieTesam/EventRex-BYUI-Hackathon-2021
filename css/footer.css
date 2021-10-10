@@ -32,10 +32,6 @@ div.developers section{
     display:grid;
     grid-template-columns: 1fr 1fr;
 }
-div.developers p a{
-    font-size: x-large;
-    text-decoration: none;
-}
 
 
 

@@ -115,14 +115,14 @@ const events = (function () {
     function getCategoryEvents(radio){
         console.log(document.body);
         let result = document.getElementById("searchResults");
-        let resultCards = [];
+        let resultCards = document.createElement("div");
         let i = 1;
         db.collection("events").where("category", "==", radio.id).get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 let docData = doc.data();
                 console.log(docData.name, docData.desc, docData.category, 'username', doc.id);
-                resultCards.push(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
+                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
                 console.log(i, querySnapshot.size);
                 if (i == querySnapshot.size) {
                     console.log(resultCards);
