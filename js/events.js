@@ -137,7 +137,7 @@ const events = (function () {
             }
 
             if (datetime) {
-                let localDate = new Date(date);
+                let localDate = new Date(datetime);
                 let dateLabel = document.createElement('span');
                 dateLabel.innerText = localDate.toLocaleDateString('en-us');
                 dateLabel.classList.add('eventDate');
