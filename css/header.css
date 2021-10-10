@@ -23,10 +23,12 @@
 
 .navButton {
     color: white;
+    margin-top: .2em;
+    margin-bottom: .2em;
     text-decoration: none;
     display: inline-block;
-    height: 5em;
-    line-height: 3.2em;
+    height: 4em;
+    line-height: 2em;
     vertical-align: middle;
     text-align: center;
     padding: 1em;
@@ -38,8 +40,7 @@
 }
 
 .navButton:hover {
-    background-color: #5ec0c0;
-    color: white;
+    border-color: white;
 }
 
 img#userIcon {
