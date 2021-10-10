@@ -37,3 +37,8 @@ div.inputContainer {
     display: inherit;
 }
 
+.navButton.active {
+    border-color: #f0e845;
+    background-color: #fff975;
+}
+

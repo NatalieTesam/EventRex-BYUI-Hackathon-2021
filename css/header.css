@@ -16,7 +16,7 @@
     font-size: 18px;
     display: flex;
     justify-content: space-between;
-    background-color: #d5e5ff;
+    background-color: #699ae9;
     transition: font-size .1s;
     width: 100%;
 }
@@ -30,14 +30,16 @@
     vertical-align: middle;
     text-align: center;
     padding: 1em;
-}
-
-.navButton.active {
-    background-color: #a6d8e7;
+    border-style: solid;
+    border-width: thick;
+    border-color: #428bfe;
+    background-color: #7aadff;
+    border-radius: 11px;
 }
 
 .navButton:hover {
     background-color: #5ec0c0;
+    color: white;
 }
 
 img#userIcon {
@@ -46,4 +48,8 @@ img#userIcon {
     margin-right: .2em;
     max-width: 1.4em;
     max-height: 1.4em;
+}
+
+.navButton.active {
+    color:black;
 }

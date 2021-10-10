@@ -36,5 +36,8 @@ div.eventContainer {
     padding: .2em;
 }
 
-
+.navButton.active {
+    background-color: #ffb2b8;
+    border-color: #ff7e88;
+}
 

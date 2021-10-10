@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/inspiration.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/mydb.js"></script>
+    <title>Inspiration</title>
+</head>
+
+<body>
+    <header>
+        <div id="navBar">
+            <div class="left">
+                <a href="index.html"><img id="logo" src="images/EventRexBlank.png"/></a>
+                <a class="navButton" href="index.html">HOME</a>
+                <a class="navButton" href="newevent.html">NEW EVENT</a>   
+                <a class="navButton" href="faq.html">FAQS</a>
+                <a class="navButton active" href="inspiration.html">INSPIRATION</a>
+
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+            </div>
+            <div class="right">
+                <a class="navButton" href="profile.html">
+                    <img src="images/user.jpg" id="userIcon"/>
+                    <span id="profileName"></span> 
+                    <script>
+                        document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
+                        document.getElementById('profileName').innerText = sessionStorage.getItem('username');
+                    </script>
+                </a>
+            </div>
+        </div>
+    </header>
+</body>
+    <main class="content">
+        <div class='mainHeading'>
+            <H2>Information and Inspiration</H2>
+        </div>
+        <div class='partySection box'>
+            <div class='partyHeading heading'>
+                <h3>Party</h3>
+            </div>
+            <div class='partyInspiration inspiration'>
+               <p>party inspirational stuff</p>
+            </div>
+        </div>
+
+        <div class='campusSection box'>
+            <div class='campusHeading heading'>
+                <h3>Campus</h3>
+            </div>
+            <div class='campusInspiration inspiration'>
+                <p>campus inspirational stuff</p>
+            </div>
+        </div>
+
+        <div class='gamesSection box'>
+            <div class='gamesHeading heading'>
+                <h3>Games</h3>
+            </div>
+            <div class='gamesInspiration inspiration'>
+                <p>inspirational games stuff</p>
+            </div>
+        </div>
+
+        <div class='outdoorsSection box'>
+            <div class='outdoorsHeading heading'>
+                <h3>Outdoors</h3>
+            </div>
+            <div class='outdoorsInspiration inspiration'>
+                <p>inspirational outdoors stuff</p>
+            </div>
+        </div>
+
+        <div class='togetherSection box'>
+            <div class='togetherHeading heading'>
+                <h3>Get Together</h3>
+            </div>
+            <div class='togetherInspiration inspiration'>
+                <p>inspirational connection stuff</p>
+            </div>
+        </div>
+
+        <div class='sportsSection box'>
+            <div class='sportsHeading heading'>
+                <h3>Sports</h3>
+            </div>
+            <div class='sportsInspiration inspiration'>
+                <p>inspirational sports stuff</p>
+            </div>
+        </div>
+
+        <div class='serviceSection box'>
+            <div class='serviceHeading heading'>
+                <h3>Service</h3>
+            </div>
+            <div class='serviceInspiration inspiration'>
+                <p>inspirational service stuff</p>
+            </div>
+        </div>
+
+        <div class='otherSection box'>
+            <div class='otherHeading heading'>
+                <h3>Miscellaneous</h3>
+            </div>
+            <div class='otherInspiration inspiration'>
+                <p>inspirational other stuff</p>
+            </div>
+        </div>
+
+        </div>
+        
+    </main>
+    <footer>
+        <div id='footer'>
+
+            </div>
+          </div>
+    </footer>

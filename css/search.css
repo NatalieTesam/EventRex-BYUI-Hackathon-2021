@@ -62,3 +62,8 @@ label{
     font-weight: 600;
     font-size: larger;
 }
+
+.navButton.active {
+    border-color: #12ce3c;
+    background-color: #78ee90;
+}

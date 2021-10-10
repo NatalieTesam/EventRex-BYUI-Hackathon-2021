@@ -17,39 +17,37 @@ h2, h3 {
     
 }
 
-.questionBox {
+.box {
     border-radius:0.5em;
-    background-color: #dff6fe;
+    background-color: #fae1fe;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
     max-width : 1000px;
     box-shadow: 5px 5px 10px #cecece;
+
 }
 
-.question {
+.heading {
+    background-color:#eda2ff;
     border-radius: 0.5em 0.5em 0 0;
-    background-color: #7cd8ff;
-    padding-top: 20px;
+    border-color: #df52ff;
+    border-style: solid;
+    border-width: thick;
+    padding-top: 11px;
     padding-right: 30px;
     padding-bottom: 10px;
     padding-left: 30px;
-    border-style: solid;
-    border-color: #36c2ff;
-    border-width: thick;
 
 }
 
-
-.answer {
+.inspiration {
     padding-top: 20px;
     padding-right: 30px;
     padding-bottom: 30px;
     padding-left: 30px;
+
 }
 
-.navButton.active {
-    background-color: #7cd8ff;
-    border-color: #36c2ff;
-}
+
