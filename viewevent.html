@@ -40,7 +40,6 @@
     <div class="viewEventCard">
         <h1 id="eventName">event</h1>
         <div class="viewEvent">
-            <p id="Author">Author: </p>
             <p id="date">date:</p>
             <p id="eventTime">time:</p>
             <p id="desc">description: </p>
@@ -71,7 +70,6 @@
             events.GetEventData(eventID, eventData => {
                 console.log(eventData)
                 document.getElementById('eventName').innerText = eventData.name;
-                document.getElementById('Author').innerText = eventData.author;
                 document.getElementById('eventTime').innerText = eventData.datetime.toISOString().split('T')[0];
                 document.getElementById('date').innerText = eventData.datetime.getHours().toString().padStart(2, '0') + ':' + eventData.datetime.getMinutes().toString().padStart(2, '0');
                 document.getElementById('address').innerText = eventData.address;
