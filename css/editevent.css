@@ -45,3 +45,10 @@ div.inputContainer {
     background-color: #fff975;
 }
 
+input:required{
+    border-left: red solid 8px;
+}
+
+input:required:valid{
+    border-left: rgb(38, 131, 38) solid 8px;
+}
