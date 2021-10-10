@@ -86,27 +86,6 @@ const events = (function () {
         }
     }
 
-    function PopulateContainer(containerID) {
-        return
-        let containerEle = document.getElementById(containerID);
-        DBGetEvents(function (eventList) {
-            for (let i = 0; i < eventList.length; i++) {
-                let eventData = eventList[i].data();
-                containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, eventData.date, eventList[i].id));
-            }
-
-            if (containerID === 'find_events') {
-                let findButton = document.createElement('a');
-                findButton.href = "search.html";
-                findButton.classList.add('card', 'cardBtn');
-                // Magnifying glass icon
-                findButton.innerHTML = '&#128269;';
-
-                containerEle.appendChild(findButton);
-            }
-        });
-    }
-
     function CreateEventCard(name, desc, category, datetime, isAuthor, eventID) {
         if (name) {
             let link = document.createElement('a');
