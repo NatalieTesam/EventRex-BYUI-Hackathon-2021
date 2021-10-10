@@ -73,6 +73,9 @@ const events = (function () {
                 console.error("Error adding document: ", error);
             });
         }
+        else{
+            window.alert("Please, choose fill all the required elements");
+        }
     }
 
     function PopulateContainer(containerID) {
@@ -195,4 +198,6 @@ const events = (function () {
         GetMyEvents: GetMyEvents,
         GetNewEvents: GetNewEvents
     }
+
+
 })();
