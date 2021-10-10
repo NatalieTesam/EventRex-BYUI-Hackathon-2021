@@ -31,6 +31,7 @@ const events = (function () {
     function GetEventData(id, cb) {
         db.collection('events').doc(id).get().then(querySnapshot => {
             let data = querySnapshot.data();
+            console.log(data)
             data.date = data.datetime.toDate();
             data.time = data.datetime.toMillis().toString();
             console.log(data)
