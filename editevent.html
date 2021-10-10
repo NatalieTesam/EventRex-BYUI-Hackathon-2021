@@ -91,9 +91,11 @@
         </div>
 
         <div class="inputContainer">
-            <label class="inputLabel" >Date: </label>
+            <label class="inputLabel">Date: </label>
             <input id="eventDate" name="date" class="eventInput" type="date" required/>
-            <label class="inputLabel" >Location: </label>
+            <label class="inputLabel">Time: </label>
+            <input id="eventTime" name="time" class="eventInput" type="time" required/>
+            <label class="inputLabel">Location: </label>
             <input id="addressAutocomplete" name="address" type="text" class="eventInput" required/>
             <label class="inputLabel">Description: </label>
             <textarea id="eventDesc" name="desc" class="eventInput"></textarea>
@@ -134,6 +136,7 @@
                             document.getElementById('eventName').value = eventData.name;
                             document.getElementById(eventData.category).checked = true;
                             document.getElementById('eventDate').value = eventData.date;
+                            document.getElementById('eventTime').value = eventData.time;
                             addressField.value = eventData.address;
                             document.getElementById('eventDesc').value = eventData.desc;
                             submitButton.value = 'Update Event!';
