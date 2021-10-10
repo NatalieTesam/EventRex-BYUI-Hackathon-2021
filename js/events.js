@@ -1,14 +1,14 @@
 const events = (function () {
     const db = firebase.firestore();
     const fakeData = [
-        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
-        { name: 'eventName2', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
-        { name: 'eventName', desc: 'this is an example of a really way too long description that won\'t fit in the event', catagory: 'party', date: '2021-10-09' },
-        { name: 'partayy!!', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
-        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
-        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2022-10-09' },
-        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2021-11-09' },
-        { name: 'eventName', desc: 'desc', catagory: 'party', date: '2021-10-15' },
+        { name: 'eventName', desc: 'event descriptions', category: 'party', date: '2021-10-09' },
+        { name: 'eventName2', desc: 'event descriptions', category: 'campus', date: '2021-10-09' },
+        { name: 'eventName', desc: 'this is an example of a really way too long description that won\'t fit in the event', category: 'party', date: '2021-10-09' },
+        { name: 'partayy!!', desc: 'event descriptions', category: 'party', date: '2021-10-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'service', date: '2021-10-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'party', date: '2022-10-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'gettogether', date: '2021-11-09' },
+        { name: 'eventName', desc: 'desc', category: 'party', date: '2021-10-15' },
     ];
 
     // Returns firestore document objects
