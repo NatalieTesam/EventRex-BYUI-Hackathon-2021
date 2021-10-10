@@ -125,6 +125,7 @@ const events = (function () {
     function getCategoryEvents(radio){
         let result = document.getElementById("searchResults");
         let resultCards = document.createElement("div");
+        resultCards.classList.add("eventGrid");
         let i = 1;
 
         //db.collection("events").where("category", "==", radio.id).get()
