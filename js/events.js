@@ -56,10 +56,13 @@ const events = (function () {
     function UpdateEvent(id, form, cb) {
         let formData = GetFormEventData(form);
         formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date + 'T' + formData.time));
+        console.log(formData)
         db.collection('events').doc(id).update(formData)
         .then(docRef => {
-            cb(docRef);
-            console.log('updated doc id ', docRef.id)
+            cb();
+            if (docRef) {
+                console.log('updated doc id ', docRef.id)
+            }
         })
         .catch(error => console.log('error updating document', error));
     }
