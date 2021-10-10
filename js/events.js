@@ -8,6 +8,12 @@ const events = (function () {
         { name: 'eventName', desc: 'event descriptions', category: 'service', date: '2021-10-09' },
         { name: 'eventName', desc: 'event descriptions', category: 'party', date: '2022-10-09' },
         { name: 'eventName', desc: 'event descriptions', category: 'gettogether', date: '2021-11-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'games', date: '2021-11-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'outdoors', date: '2021-11-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'gettogether', date: '2021-11-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'sport', date: '2021-11-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'etc', date: '2021-11-09' },
+        { name: 'eventName', desc: 'event descriptions', category: 'gettogether', date: '2021-11-09' },
         { name: 'eventName', desc: 'desc', category: 'party', date: '2021-10-15' },
     ];
 
@@ -70,7 +76,7 @@ const events = (function () {
         DBGetEvents(function (eventList) {
             for (let i = 0; i < eventList.length; i++) {
                 let eventData = eventList[i].data();
-                containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, 'username', eventList[i].id));
+                containerEle.appendChild(CreateEventCard(eventData.name, eventData.desc, eventData.category, eventData.date, 'username', eventList[i].id));
             }
 
             if (containerID === 'find_events') {
@@ -84,13 +90,13 @@ const events = (function () {
         });
     }
 
-    function CreateEventCard(name, desc, category, authorName, eventID) {
+    function CreateEventCard(name, desc, category, date, authorName, eventID) {
         if (name) {
             let link = document.createElement('a');
             link.href = 'editevent.html?id=' + eventID;
 
             let card = document.createElement('div');
-            card.classList.add('card');
+            card.classList.add('card', category);
 
             let titleEle = document.createElement('h3');
             titleEle.innerText = name;
@@ -111,6 +117,14 @@ const events = (function () {
 
                 card.appendChild(categoryImg);
                 card.appendChild(categoryLabel);
+            }
+
+            if (date) {
+                let localDate = new Date(date);
+                let dateLabel = document.createElement('span');
+                dateLabel.innerText = localDate.toLocaleDateString('en-us');
+                dateLabel.classList.add('eventDate');
+                card.appendChild(dateLabel);
             }
 
             link.appendChild(card);
@@ -134,7 +148,7 @@ const events = (function () {
                 //let docData = doc.data();
                 for (let j = 0; j < fakeData.length; j++) {
                     let docData = fakeData[j];
-                    resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, 'username', /*doc.id*/123));
+                    resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.date, 'username', /*doc.id*/123));
                     //if (i == querySnapshot.size) {
                     if (i == fakeData.length) {
                         result.appendChild(resultCards);

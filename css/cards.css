@@ -65,11 +65,58 @@ div.eventGrid{
     grid-template-columns: repeat(2, 1fr);
     width: 90%;
 }
+
 div#searchResults div.eventGrid div.card{
     width: 100%;
 }
+
 @media screen and (min-width:1200px){
     div.eventGrid{
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+.card .eventDate {
+    float: right;
+    margin-top: 2em;
+}
+
+.card.party {
+    background-color: #fdedfa;
+    border: 5px solid #FFAAFF;
+}
+
+.card.campus {
+    background-color: #ededfd;
+    border: 5px solid #a2a3fd;
+}
+
+.card.games {
+    background-color: #f4edfd;
+    border: 5px solid #ddaaff;
+}
+
+.card.outdoors {
+    background-color: #edfdee;
+    border: 5px solid #aaffb8;
+}
+
+.card.gettogether {
+    background-color: #fdfded;
+    border: 5px solid #fffeaa;
+}
+
+.card.sport {
+    background-color: #fdf0ed;
+    border: 5px solid #ffc9aa;
+}
+
+.card.service {
+    background-color: #fdf0ed;
+    border: 5px solid #ffb0aa;
+}
+
+.card.etc {
+    background-color: #edfdf7;
+    border: 5px solid #aaffea;
 }
