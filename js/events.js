@@ -169,7 +169,7 @@ const events = (function () {
         // Get personally created events
         console.log('getting my events');
         let containerEle = document.getElementById(containerID);
-        db.collection("events").where("uid", "==", sessionStorage.getItem('uid')).get()
+        db.collection("events").where("author", "==", sessionStorage.getItem('uid')).get()
         .then(snapshot => {
             snapshot.forEach(doc => {
                 let docData = doc.data();
