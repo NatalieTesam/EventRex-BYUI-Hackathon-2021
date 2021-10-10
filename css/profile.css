@@ -1,0 +1,18 @@
+div.viewProfile{
+    background-color: #ececec;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 1.5em;
+    padding-bottom: 2.5em;
+}
+
+div.viewProfile{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+div.viewProfile p{
+    padding: 1.2em;
+}

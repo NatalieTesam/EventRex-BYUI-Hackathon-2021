@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/viewevent.css">
+    <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="js/header.js"></script>
@@ -12,7 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>
     <script src="js/mydb.js"></script>
     <script src="js/events.js"></script>
-    <title>EventRex View Event</title>
+    <title>EventRex Profile</title>
 </head>
 <body>
     <header>
@@ -37,15 +37,17 @@
         </div>
     </header>
 <main>
-    <div class="viewEventCard">
-        <h1 id="eventName">event</h1>
-        <img id="categoryImage" src="" alt="category image">
-        <div class="viewEvent">
-            <p id="Author">Author: </p>
-            <p id="date">date:</p>
-            <p id="desc">description: </p>
-            <p id="address">Address: </p>
+    <div class="viewProfile">
+        <h1 id="profileName">Profile Name</h1>
+        <img id="profileImage" src="" alt="profile image">
+        <div class="profileInformation">
+            <p>Name</p>
+            <p>E-Mail Address</p>
         </div>
+    </div>
+    <div class="yourEvents">
+        <h3>Your Events</h3>
+        <p>Event</p>
     </div>
 </main>
     <footer>
