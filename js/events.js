@@ -197,7 +197,7 @@ const events = (function () {
     function GetNewEvents(containerID) {
         let containerEle = document.getElementById(containerID);
         db.collection('events')
-        .orderBy("timestamp", "desc")
+        .orderBy("datetime", "desc")
         .limit(5)
         .get()
         .then(snapshot => {
