@@ -29,7 +29,13 @@ const events = (function () {
     }
 
     function GetEventData(id, cb) {
-        db.collection('events').doc(id).get().then(querySnapshot => cb(querySnapshot.data()));
+        db.collection('events').doc(id).get().then(querySnapshot => {
+            let data = querySnapshot.data();
+            data.date = data.dateTime.toDate();
+            data.time = data.dateTime.toMillis().toString();
+            console.log(data)
+            cb(data);
+        });
     }
 
     function GetFormEventData(form) {
@@ -62,7 +68,7 @@ const events = (function () {
     function SubmitEventForm(form, cb) {
         if (form.reportValidity()) {
             let formData = GetFormEventData(form);
-            formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date));
+            formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date + 'T' + formData.time));
             formData.author = sessionStorage.getItem('uid');
             db.collection('events').add(formData)
             .then((docRef) => {
