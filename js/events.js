@@ -81,6 +81,7 @@ const events = (function () {
 
             if (containerID === 'find_events') {
                 let findButton = document.createElement('a');
+                findButton.href = "search.html";
                 findButton.classList.add('card', 'cardBtn');
                 // Magnifying glass icon
                 findButton.innerHTML = '&#128269;';

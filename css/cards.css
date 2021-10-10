@@ -15,6 +15,7 @@ a.cardBtn {
     line-height: 2em;
     font-size: 50px;
     text-align: center;
+    cursor: pointer;
 }
 
 .card span {
