@@ -1,0 +1,19 @@
+div.viewEventCard{
+    background-color: #c7daf9;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 1.5em;
+    padding-bottom: 2.5em;
+}
+
+div.viewEvent{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+div.viewEvent p{
+    padding: 1.2em;
+
+}
