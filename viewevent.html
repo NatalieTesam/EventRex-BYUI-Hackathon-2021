@@ -39,10 +39,10 @@
 <main>
     <div class="viewEventCard">
         <h1 id="eventName">event</h1>
-        <img id="categoryImage" src="" alt="category image">
         <div class="viewEvent">
             <p id="Author">Author: </p>
             <p id="date">date:</p>
+            <p id="eventTime">time:</p>
             <p id="desc">description: </p>
             <p id="address">Address: </p>
         </div>
@@ -62,5 +62,21 @@
               </div>
           </div>
     </footer>
+
+    <script>
+        let cgi = new URLSearchParams(window.location.search);
+        let eventID = cgi.get('id');
+        console.log(eventID)
+        if (eventID) {
+            events.GetEventData(eventID, eventData => {
+                console.log(eventData)
+                document.getElementById('eventName').value = eventData.name;
+                document.getElementById('Author').value = eventData.author;
+                document.getElementById('eventTime').value = eventData.datetime.toISOString().split('T')[0];
+                document.getElementById('date').value = eventData.datetime.getHours().toString().padStart(2, '0') + ':' + eventData.datetime.getMinutes().toString().padStart(2, '0');
+                document.getElementById('address').value = eventData.address;
+            });
+        }
+    </script>
 </body>
 </html>
