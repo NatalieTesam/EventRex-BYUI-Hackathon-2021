@@ -46,9 +46,9 @@ div.inputContainer {
 }
 
 input:required{
-    border-left: red solid 8px;
+    border-left: red solid 5px;
 }
 
 input:required:valid{
-    border-left: rgb(38, 131, 38) solid 8px;
+    border-left: rgb(38, 131, 38) solid 5px;
 }
