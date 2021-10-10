@@ -50,3 +50,8 @@ div.card {
     box-shadow: 1px 2px 2px lightgray;
     transition: box-shadow .2s;
 }
+
+div#searchResults{
+    display: grid;
+    grid-template-columns: auto;
+}
