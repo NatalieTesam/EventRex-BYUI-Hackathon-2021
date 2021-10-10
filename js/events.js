@@ -62,7 +62,7 @@ const events = (function () {
     function SubmitEventForm(form, cb) {
         if (form.reportValidity()) {
             let formData = GetFormEventData(form);
-            formData.datetime = firebase.firestore.Timestamp.fromDate(formData.date);
+            formData.datetime = firebase.firestore.Timestamp.fromDate(new Date(formData.date));
             formData.author = sessionStorage.getItem('uid');
             db.collection('events').add(formData)
             .then((docRef) => {
