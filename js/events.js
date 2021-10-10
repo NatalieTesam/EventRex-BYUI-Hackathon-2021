@@ -202,7 +202,7 @@ const events = (function () {
         .get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-                console.log(doc.getData())
+                console.log(doc)
             })
         })
     }
