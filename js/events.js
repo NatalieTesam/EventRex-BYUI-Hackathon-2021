@@ -202,9 +202,10 @@ const events = (function () {
         .get()
         .then(snapshot => {
             snapshot.forEach(doc => {
-                console.log(doc)
-            })
-        })
+                let docData = doc.data();
+                containerEle.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, docData.datetime, (docData.author === sessionStorage.getItem('uid')), doc.id));
+            });
+        });
     }
 
     return {
