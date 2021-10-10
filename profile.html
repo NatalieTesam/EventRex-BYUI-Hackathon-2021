@@ -43,14 +43,15 @@
             <img src="images/user.jpg" id="userIcon" alt="profile picture"/>
             <span id="profileName"></span> 
             <script>
+                let username = sessionStorage.getItem('username');
                 document.getElementById('userIcon').src=sessionStorage.getItem('iconurl');
-                document.getElementById('profileName').innerText = sessionStorage.getItem('username');
+                document.getElementById('profileName').innerText = username;
+                document.getElementById('username').innerText = username;
             </script>
         </p>
         <div class="profileInformation">
-            <p>Name: <span id="profileName"></span></p>
+            <p>Name: <span id="username"></span></p>
             <p>E-Mail Address: </p>
-
         </div>
     </div>
 </main>
