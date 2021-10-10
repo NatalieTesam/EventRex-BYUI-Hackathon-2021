@@ -1,5 +1,15 @@
 const events = (function () {
     const db = firebase.firestore();
+    const fakeData = [
+        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
+        { name: 'eventName2', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
+        { name: 'eventName', desc: 'this is an example of a really way too long description that won\'t fit in the event', catagory: 'party', date: '2021-10-09' },
+        { name: 'partayy!!', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
+        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2021-10-09' },
+        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2022-10-09' },
+        { name: 'eventName', desc: 'event descriptions', catagory: 'party', date: '2021-11-09' },
+        { name: 'eventName', desc: 'desc', catagory: 'party', date: '2021-10-15' },
+    ];
 
     // Returns firestore document objects
     function DBGetEvents(cb) {
@@ -116,17 +126,22 @@ const events = (function () {
         let result = document.getElementById("searchResults");
         let resultCards = document.createElement("div");
         let i = 1;
-        db.collection("events").where("category", "==", radio.id).get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                let docData = doc.data();
-                resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, 'username', doc.id));
-                if (i == querySnapshot.size) {
-                    result.appendChild(resultCards);
+
+        //db.collection("events").where("category", "==", radio.id).get()
+        //.then((querySnapshot) => {
+            //querySnapshot.forEach((doc) => {
+                //let docData = doc.data();
+                for (let j = 0; j < fakeData.length; j++) {
+                    let docData = fakeData[j];
+                    resultCards.appendChild(CreateEventCard(docData.name, docData.desc, docData.category, 'username', /*doc.id*/123));
+                    //if (i == querySnapshot.size) {
+                    if (i == fakeData.length) {
+                        result.appendChild(resultCards);
+                    }
+                    i++;
                 }
-                i++;
-            });
-        });
+            //});
+        //});
     }
 
     return {
