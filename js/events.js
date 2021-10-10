@@ -120,6 +120,7 @@ const events = (function () {
             }
 
             if (datetime) {
+                console.log(datetime)
                 let localDate = datetime.toDate();
                 let dateLabel = document.createElement('span');
                 // A <BR>? What is this, the 1990s?
