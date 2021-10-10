@@ -104,9 +104,10 @@ const events = (function () {
             }
 
             link.appendChild(card);
-
+            console.log(link)
             return link;
         } else {
+            console.log("null")
             return null;
         }
     }
