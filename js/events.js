@@ -91,7 +91,7 @@ const events = (function () {
         });
     }
 
-    function CreateEventCard(name, desc, category, date, authorName, eventID) {
+    function CreateEventCard(name, desc, category, date, eventID) {
         if (name) {
             let link = document.createElement('a');
             link.href = 'editevent.html?id=' + eventID;
@@ -129,10 +129,8 @@ const events = (function () {
             }
 
             link.appendChild(card);
-            console.log(link)
             return link;
         } else {
-            console.log("null")
             return null;
         }
     }

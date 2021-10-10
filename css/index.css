@@ -41,3 +41,7 @@ div.eventContainer {
     border-color: #ff7e88;
 }
 
+.gmap_canvas {
+    border: 5px solid white;
+    border-radius: 1em;
+}
