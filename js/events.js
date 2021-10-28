@@ -110,7 +110,7 @@ const events = (function () {
             if (category) {
                 let categoryImg = document.createElement('img');
                 let categoryLabel = document.createElement('span');
-                categoryImg.src = 'images/Icon' + category.toUpperCase() + '.png';
+                categoryImg.src = 'images/Icon' + category.toUpperCase() + '.webp';
                 categoryImg.classList.add('categoryImg');
                 categoryLabel.innerText = category;
 
