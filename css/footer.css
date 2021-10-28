@@ -1,7 +1,7 @@
 div#footer{
     margin: 0 auto;
     padding: 2em;
-    background-image: url('https://github.com/leviwj/hackathon/blob/main/images/Footer.jpg?raw=true');
+    background-image: url('https://raw.githubusercontent.com/leviwj/hackathon/main/images/Footer.webp');
     background-color: #c0eeeed3;
     text-align: center;
     display: grid;
